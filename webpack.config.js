@@ -1,7 +1,7 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require("path");
+const webpack = require("webpack");
 
-const devServerPort = 3000
+const devServerPort = 3000;
 
 module.exports = {
   entry: "./src/index.js",
@@ -12,25 +12,24 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
         loader: "babel-loader",
-        options: {presets: ["@babel/preset-env"]}
-      }
-    ]
+        options: { presets: ["@babel/preset-env"] },
+      },
+    ],
   },
-  resolve: {extensions : ["*", ".js", ".jsx"]},
+  resolve: { extensions: ["*", ".js", ".jsx"] },
   output: {
     path: path.resolve(__dirname, "dist"),
     publicPath: "/dist/",
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   devServer: {
     port: devServerPort,
     open: {
       app: {
-        name: 'firefox',
-      }
+        name: "firefox",
+      },
     },
-    client: {logging: 'warn'},
-    hot: true
+    client: { logging: "warn" },
+    hot: true,
   },
-
-}
+};
