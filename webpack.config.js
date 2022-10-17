@@ -18,24 +18,19 @@ module.exports = {
   },
   resolve: {extensions : ["*", ".js", ".jsx"]},
   output: {
-    path: path.resolve(__dirname, "dist/"),
+    path: path.resolve(__dirname, "dist"),
     publicPath: "/dist/",
     filename: "bundle.js"
   },
   devServer: {
-    static: {
-      directory: path.join(__dirname, 'public'),
-      publicPath: `http://localhost:${devServerPort}/dist/`
-    },
-    // contentBase: path.join(__dirname, "public/"),
     port: devServerPort,
     open: {
       app: {
         name: 'firefox',
       }
     },
-    // publicPath: `http://localhost:${devServerPort}/dist/`,
-    hot: true,
+    client: {logging: 'warn'},
+    hot: true
   },
 
 }
