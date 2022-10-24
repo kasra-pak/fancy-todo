@@ -4,7 +4,10 @@
   "description": "list all your tasks here",
   "private": "true",
   "scripts": {
-    "start": "webpack serve"
+    "start": "webpack serve",
+    "format": "prettier --write **/*.{js,jsx}",
+    "lint": "eslint **/*.{js,jsx} --ignore-path .gitignore",
+    "lint:fix": "npm run lint --fix"
   },
   "author": "kasrapak69@gmail.com",
   "license": "ISC",
@@ -13,7 +16,12 @@
     "@babel/core": "^7.19.3",
     "@babel/preset-env": "^7.19.3",
     "@babel/preset-react": "^7.18.6",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
     "babel-loader": "^8.2.5",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
     "prettier": "^2.7.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
