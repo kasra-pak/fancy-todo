@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`${css`
   }
 
   body {
+    font-family: "Josefin Sans", sans-serif;
     min-height: 100vh;
   }
 
