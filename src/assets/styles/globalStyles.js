@@ -1,5 +1,8 @@
 import { createGlobalStyle, css } from "styled-components";
 
+import mobileBG from '@assets/images/bg-mobile-light.jpg';
+import desktopBG from '@assets/images/bg-desktop-light.jpg';
+
 const GlobalStyle = createGlobalStyle`${css`
   *,
   *::before,
@@ -30,7 +33,20 @@ const GlobalStyle = createGlobalStyle`${css`
 
   body {
     font-family: "Josefin Sans", sans-serif;
+    background-color: ${({ theme }) => theme.light.color1};
+    background-image: url(${mobileBG});
+    background-repeat: no-repeat;
+    background-size: cover contain;
+    background-position: top center;
     min-height: 100vh;
+
+    @media screen and (min-width: 376px) {
+      background-image: url(${desktopBG});
+    }
+
+    @media screen and (min-width: 1441px) {
+      background-size: contain;
+    }
   }
 
   img,
