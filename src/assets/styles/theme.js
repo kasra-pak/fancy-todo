@@ -1,6 +1,3 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
-
 const theme = {
   general: {
     color1: "hsl(220, 98%, 61%)",
@@ -44,8 +41,4 @@ const theme = {
 // --Very - Dark - Grayish - Blue: hsl(233, 14 %, 35 %);
 // --Very - Dark - Grayish - Blue: hsl(237, 14 %, 26 %);
 
-const Theme = ({ children }) => (
-  <ThemeProvider theme={theme}>{children}</ThemeProvider>
-);
-
-export default Theme;
+export { theme };
