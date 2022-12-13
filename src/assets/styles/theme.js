@@ -4,13 +4,16 @@ const theme = {
     color2:
       "linear-gradient(to right bottom, hsl(192, 100%, 67%), hsl(280, 87%, 65%))",
   },
+
   light: {
     color1: "hsl(0, 0%, 98%)",
     color2: "hsl(236, 33%, 92%)",
     color3: "hsl(233, 11%, 84%)",
     color4: "hsl(236, 9%, 61%)",
     color5: "hsl(235, 19%, 35%)",
+    color6: "hsla(0, 100%, 0%, .15)"
   },
+
   dark: {
     color1: "hsl(235, 21%, 11%)",
     color2: "hsl(235, 24%, 19%)",

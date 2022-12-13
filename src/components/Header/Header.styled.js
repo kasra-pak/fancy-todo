@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import mobileBG from '@assets/images/bg-mobile-light.jpg';
 import moonImg from "@assets/images/icon-moon.svg";
 
 const Wrapper = styled.header`
