@@ -30,6 +30,7 @@ const theme = {
   fonts: {
     font1: '.65rem',
     font2: '.8rem',
+    font3: '1.5rem',
   },
 
   circle: {
