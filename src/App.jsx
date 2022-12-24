@@ -6,6 +6,7 @@ import Header from "@components/Header";
 import InputField from "@components/InputField";
 import Items from "@components/Items";
 import Item from "@components/Item";
+import Filters from "@components/Filters";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Item>pick up groceries</Item>
         <Item>complete todo app on frontend mentor</Item>
       </Items>
+      <Filters />
     </>
   );
 };
