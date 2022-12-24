@@ -7,7 +7,7 @@ const Wrapper = styled.div`
     display: inline-block;
     border: 1px solid ${({ theme }) => theme.light.color3};
     border-radius: 100%;
-    width: 15px;
+    width: ${({ theme }) => theme.circle.size1};
     aspect-ratio: 1;
     position: absolute;
     top: 47%;
@@ -23,9 +23,10 @@ const Input = styled.input`
   color: ${({ theme }) => theme.light.color5};
   caret-color: ${({ theme }) => theme.general.color1};
   padding: 1.25em 1em 1.25em 2.15rem;
-  border-radius: .25em;
+  border-radius: ${({ theme }) => theme.roundBorder};
   border: none;
-  box-shadow: 0 5px 15px -2px ${({ theme }) => theme.light.color6};
+  box-shadow: ${({ theme }) => theme.shadows.shadow1};
+
 
 `;
 

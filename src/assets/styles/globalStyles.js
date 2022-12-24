@@ -24,11 +24,16 @@ const GlobalStyle = createGlobalStyle`${css`
   h3,
   h4,
   p,
+  ul,
   figure,
   blockquote,
   dl,
   dd {
     margin: 0;
+  }
+
+  ul {
+    padding: 0;
   }
 
   body {
