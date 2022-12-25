@@ -1,16 +1,18 @@
 import styled from "styled-components";
 
 const Wrapper = styled.ul`
+  font-size: ${({ theme }) => theme.fonts.font1};
   background-color: ${({ theme }) => theme.light.color1};
   color: ${({ theme }) => theme.light.color5};
   display: flex;
   flex-direction: column;
-  margin-block: .75em;
+  margin-block: 1.5em;
   border-radius: ${({ theme }) => theme.roundBorder};
   box-shadow: ${({ theme }) => theme.shadows.shadow1};
-
+  
   & > * {
-    padding: 1em;
+    padding: 1.25em 1.5em;
+    min-height: 50px;
   }
   
   & > * + * {
@@ -26,12 +28,10 @@ const Footer = styled.div`
 `;
 
 const ItemCount = styled.p`
-  font-size: ${({ theme }) => theme.fonts.font1};
   color: ${({ theme }) => theme.light.color4};
 `;
 
 const ClearBtn = styled.button`
-  font-size: ${({ theme }) => theme.fonts.font1};
   text-transform: capitalize;
   color: ${({ theme }) => theme.light.color4};
   background-color: transparent;

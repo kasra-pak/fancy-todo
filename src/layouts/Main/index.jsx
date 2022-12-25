@@ -10,12 +10,12 @@ const Main = () => {
     <main>
       <InputField placeholder="Create a new todo..." />
       <Items>
-        <Item>complete online javascript course</Item>
-        <Item>jog around the park 3x</Item>
+        <Item>Complete online JavaScript course</Item>
+        <Item>Jog around the park 3x</Item>
         <Item>10 minutes meditation</Item>
-        <Item>read for 1 hour</Item>
-        <Item>pick up groceries</Item>
-        <Item>complete todo app on frontend mentor</Item>
+        <Item>Read for 1 hour</Item>
+        <Item>Pick up groceries</Item>
+        <Item>Complete Todo App on Frontend Mentor</Item>
       </Items>
       <Filters />
     </main>

@@ -6,7 +6,7 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-block: 2.7em 2em;
+  margin-block: 2.7em 1.8em;
 `;
 
 const Title = styled.h1`

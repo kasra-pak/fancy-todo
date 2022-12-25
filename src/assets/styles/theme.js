@@ -34,10 +34,10 @@ const theme = {
   },
 
   circle: {
-    size1: '18px',
+    size1: '19px',
   },
 
-  roundBorder: '.25em',
+  roundBorder: '.35rem',
 };
 
 // --Bright - Blue: hsl(220, 98 %, 61 %);

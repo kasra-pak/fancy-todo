@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`${css`
     background-repeat: no-repeat;
     background-size: cover contain;
     background-position: top center;
-    min-height: 100vh;
+    max-height: 100vh;
     margin: 1.25em;
 
     @media screen and (min-width: 376px) {

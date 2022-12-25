@@ -8,12 +8,12 @@ const CompleteBtn = styled.button`
   border-radius: 100%;
   width: ${({ theme }) => theme.circle.size1};
   aspect-ratio: 1;
+  flex-shrink: 0;
   cursor: pointer;
 `;
 
 const Wrapper = styled.li`
   font-size: ${({ theme }) => theme.fonts.font1};
-  text-transform: capitalize;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,6 +21,7 @@ const Wrapper = styled.li`
 
   p {
     flex: 1 1 100%;
+    line-height: 1;
   }
 `;
 
@@ -30,7 +31,9 @@ const DeleteBtn = styled.button`
   background-image: url(${crossImg});
   background-repeat: no-repeat;
   background-size: cover;
+  width: 13px;
   aspect-ratio: 1;
+  flex-shrink: 0;
   cursor: pointer;
 `;
 
