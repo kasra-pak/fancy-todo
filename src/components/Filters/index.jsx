@@ -1,13 +1,13 @@
 import React from "react";
 
-import { Wrapper } from "./Filters.styled";
+import { Wrapper, Filter } from "./Filters.styled";
 
 const Filters = () => {
   return (
     <Wrapper>
-      <li>all</li>
-      <li>active</li>
-      <li>completed</li>
+      <Filter active={true}>all</Filter>
+      <Filter>active</Filter>
+      <Filter>completed</Filter>
     </Wrapper>
   );
 };

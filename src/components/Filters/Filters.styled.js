@@ -14,4 +14,14 @@ const Wrapper = styled.ul`
   border-radius: ${({ theme }) => theme.roundBorder};
 `;
 
-export { Wrapper };
+const Filter = styled.li`
+  color: ${({ active, theme }) => active ? theme.general.color1 : 'inherit'};
+  transition: color .2s ease;
+
+  &:hover {
+    color: ${({ active, theme }) => !active && theme.light.color5};
+    cursor: pointer;
+  }
+`;
+
+export { Wrapper, Filter };
