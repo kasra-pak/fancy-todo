@@ -3,6 +3,25 @@ import styled, { css } from "styled-components";
 import crossImg from '@assets/images/icon-cross.svg';
 import checkImg from '@assets/images/icon-check.svg';
 
+const Wrapper = styled.li`
+  font-size: ${({ theme }) => theme.fonts.font1};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  /* Show DeleteBtn on hover */
+  &:hover > button {
+    opacity: 1;
+    pointer-events: unset;
+  }
+`;
+
 const Border = styled.div`
   background-color: ${({ complete, theme }) => complete ? 'none' : theme.light.color3};
   border-radius: 100%;
@@ -14,7 +33,7 @@ const Border = styled.div`
   }
 
   /* completed items style */
-  & > button {
+  button {
     ${({ complete }) => complete && css`
       background-image: url(${checkImg}), ${({ theme }) => theme.general.color2};
       background-repeat: no-repeat;
@@ -33,30 +52,11 @@ const CompleteBtn = styled.button`
   cursor: inherit;
 `;
 
-const Wrapper = styled.li`
-  font-size: ${({ theme }) => theme.fonts.font1};
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1em;
-  cursor: grab;
-
-  &:active {
-    cursor: grabbing;
-  }
-
-  /* Show DeleteBtn on hover */
-  &:hover > button {
-    opacity: 1;
-    pointer-events: unset;
-  }
-
-  p {
-    flex: 1 1 100%;
-    line-height: 1;
-    text-decoration-line: ${(props) => props.complete ? 'line-through' : 'none'};
-    color: ${({ theme, complete }) => complete ? theme.light.color3 : 'inherit'};
-  }
+const Text = styled.p`
+  flex: 1 1 100%;
+  line-height: 1;
+  text-decoration-line: ${(props) => props.complete ? 'line-through' : 'none'};
+  color: ${({ theme, complete }) => complete ? theme.light.color3 : 'inherit'};
 `;
 
 const DeleteBtn = styled.button`
@@ -75,8 +75,9 @@ const DeleteBtn = styled.button`
 `;
 
 export {
+  Wrapper,
   Border,
   CompleteBtn,
-  Wrapper,
+  Text,
   DeleteBtn,
 };
