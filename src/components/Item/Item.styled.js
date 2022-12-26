@@ -39,6 +39,17 @@ const Wrapper = styled.li`
   justify-content: space-between;
   align-items: center;
   gap: 1em;
+  cursor: grab;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  /* Show DeleteBtn on hover */
+  &:hover > button {
+    opacity: 1;
+    pointer-events: unset;
+  }
 
   p {
     flex: 1 1 100%;
@@ -58,6 +69,9 @@ const DeleteBtn = styled.button`
   aspect-ratio: 1;
   flex-shrink: 0;
   cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
 `;
 
 export {
