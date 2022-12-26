@@ -6,7 +6,7 @@ const Item = ({ children, complete }) => {
   return (
     <Wrapper>
       <Border complete={complete}>
-        <CompleteBtn type="button" />
+        <CompleteBtn complete={complete} type="button" />
       </Border>
       <Text complete={complete}>{children}</Text>
       <DeleteBtn type="button" />

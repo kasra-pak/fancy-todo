@@ -23,22 +23,26 @@ const Wrapper = styled.li`
 `;
 
 const Border = styled.div`
-  background-color: ${({ complete, theme }) => complete ? 'none' : theme.light.color3};
+  background-color: ${({ theme }) => theme.light.color3};
   border-radius: 100%;
   padding: ${({ complete }) => complete ? '0' : '1px'};
   cursor: pointer;
+  position: relative;
   
-  &:hover {
-    background-image: ${({ complete, theme }) => complete ? 'none' : theme.general.color2};
+  /* Gradient background transition is not supported */
+  /* So we simulate it :D */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: ${({ theme }) => theme.general.color2};
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity .2s ease;
   }
 
-  /* completed items style */
-  button {
-    ${({ complete }) => complete && css`
-      background-image: url(${checkImg}), ${({ theme }) => theme.general.color2};
-      background-repeat: no-repeat;
-      background-position: center;
-    `}
+  &:hover::after {
+    opacity: 1;
   }
 `;
 
@@ -50,6 +54,16 @@ const CompleteBtn = styled.button`
   border-radius: inherit;
   flex-shrink: 0;
   cursor: inherit;
+  /* Always in front; even when hovering */
+  position: relative;
+  z-index: 1;
+
+  /* completed items style */
+  ${({ complete }) => complete && css`
+    background-image: url(${checkImg}), ${({ theme }) => theme.general.color2};
+    background-repeat: no-repeat;
+    background-position: center;
+  `}
 `;
 
 const Text = styled.p`
