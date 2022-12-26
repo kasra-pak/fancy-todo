@@ -1,11 +1,13 @@
 import React from "react";
 
-import { CompleteBtn, Wrapper, DeleteBtn } from "./Item.styled";
+import { Border, CompleteBtn, Wrapper, DeleteBtn } from "./Item.styled";
 
-const Item = ({ children }) => {
+const Item = ({ children, complete }) => {
   return (
-    <Wrapper>
-      <CompleteBtn type="button" />
+    <Wrapper complete={complete}>
+      <Border complete={complete}>
+        <CompleteBtn type="button" />
+      </Border>
       <p>{children}</p>
       <DeleteBtn type="button" />
     </Wrapper>

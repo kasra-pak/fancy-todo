@@ -10,7 +10,7 @@ const Main = () => {
     <main>
       <InputField placeholder="Create a new todo..." />
       <Items>
-        <Item>Complete online JavaScript course</Item>
+        <Item complete={true}>Complete online JavaScript course</Item>
         <Item>Jog around the park 3x</Item>
         <Item>10 minutes meditation</Item>
         <Item>Read for 1 hour</Item>
