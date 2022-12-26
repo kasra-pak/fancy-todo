@@ -55,6 +55,11 @@ const GlobalStyle = createGlobalStyle`${css`
     }
   }
 
+  *::selection {
+    color: ${({ theme }) => theme.dark.color1};
+    background-color: ${({ theme }) => theme.general.color1};
+  }
+
   img,
   picture {
     max-width: 100%;
