@@ -5,9 +5,11 @@ import Items from "@components/Items";
 import Item from "@components/Item";
 import Filters from "@components/Filters";
 
+import { Wrapper } from "./Main.styled";
+
 const Main = () => {
   return (
-    <main>
+    <Wrapper>
       <InputField placeholder="Create a new todo..." />
       <Items>
         <Item complete={true}>Complete online JavaScript course</Item>
@@ -18,7 +20,7 @@ const Main = () => {
         <Item>Complete Todo App on Frontend Mentor</Item>
       </Items>
       <Filters />
-    </main>
+    </Wrapper>
   );
 };
 

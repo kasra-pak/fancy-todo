@@ -1,3 +1,8 @@
 import styled from "styled-components";
 
-export { };
+const Wrapper = styled.main`
+  max-width: 530px;
+  margin-inline: auto;
+`;
+
+export { Wrapper };
