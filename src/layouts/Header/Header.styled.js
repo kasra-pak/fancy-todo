@@ -7,7 +7,7 @@ const Wrapper = styled.header`
   justify-content: space-between;
   align-items: flex-start;
   max-width: 540px;
-  margin-block: clamp(2.7em, 7vw, 4.25em) clamp(1.8em, 5vw, 2.35em);
+  margin-block: clamp(2.7em, 7vw, 4.25em) clamp(1.8em, 5vw, 2.25em);
   margin-inline: auto;
 `;
 

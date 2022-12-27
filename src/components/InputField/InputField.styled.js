@@ -11,18 +11,18 @@ const Wrapper = styled.div`
     aspect-ratio: 1;
     position: absolute;
     top: 47%;
-    left: 1em;
+    left: clamp(1em, 3.5vw, 1.5em);
     transform: translateY(-50%);
   }
 `;
 
 const Input = styled.input`
   width: 100%;
-  min-height: 50px;
+  /* min-height: 50px; */
   font-size: ${({ theme }) => theme.fonts.font1};
   color: ${({ theme }) => theme.light.color5};
   caret-color: ${({ theme }) => theme.general.color1};
-  padding: 1.55em 1em 1.55em 4em;
+  padding: clamp(1.25em, 3vw, 1.25em) clamp(1em, 3vw, 1.5em) clamp(1.25em, 3vw, 1.25em) 4em;
   border-radius: ${({ theme }) => theme.roundBorder};
   border: none;
   box-shadow: ${({ theme }) => theme.shadows.shadow1};

@@ -28,7 +28,11 @@ const Border = styled.div`
   padding: ${({ complete }) => complete ? '0' : '1px'};
   cursor: pointer;
   position: relative;
-  
+
+  /* Keeps the inner button centered */
+  display: flex;
+  justify-content: center;
+
   /* Gradient background transition is not supported */
   /* So we simulate it :D */
   &::after {
@@ -63,6 +67,7 @@ const CompleteBtn = styled.button`
     background-image: url(${checkImg}), ${({ theme }) => theme.general.color2};
     background-repeat: no-repeat;
     background-position: center;
+    background-size: 50%, cover;
   `}
 `;
 

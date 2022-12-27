@@ -28,13 +28,13 @@ const theme = {
   },
 
   fonts: {
-    font1: '.7rem',
+    font1: 'clamp(.7rem, 2.25vw, 1rem)',
     font2: '.8rem',
     font3: 'clamp(1.5rem, 5vw, 2.3rem)'
   },
 
   circle: {
-    size1: '19px',
+    size1: 'clamp(19px, 3vw, 25px)'
   },
 
   roundBorder: '.35rem',
