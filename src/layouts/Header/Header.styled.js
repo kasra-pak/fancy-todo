@@ -6,8 +6,8 @@ const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  max-width: 530px;
-  margin-block: 2.7em 1.8em;
+  max-width: 540px;
+  margin-block: clamp(2.7em, 7vw, 4.25em) clamp(1.8em, 5vw, 2.35em);
   margin-inline: auto;
 `;
 
@@ -15,7 +15,7 @@ const Title = styled.h1`
   color: ${({ theme }) => theme.light.color1};
   font-size: ${({ theme }) => theme.fonts.font3};
   text-transform: uppercase;
-  letter-spacing: 10px;
+  letter-spacing: clamp(10px, 1.5vw, 13px);
   line-height: 1;
 `;
 
@@ -25,7 +25,7 @@ const ThemeToggler = styled.button`
   background-repeat: no-repeat;
   background-size: cover;
   border: none;
-  width: 20px;
+  width: clamp(20px, 3.5vw, 27px);
   aspect-ratio: 1;
   cursor: pointer;
 `;
