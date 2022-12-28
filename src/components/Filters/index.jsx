@@ -2,9 +2,9 @@ import React from "react";
 
 import { Wrapper, Filter } from "./Filters.styled";
 
-const Filters = () => {
+const Filters = ({ elevated }) => {
   return (
-    <Wrapper>
+    <Wrapper elevated={elevated}>
       <Filter active={true}>all</Filter>
       <Filter>active</Filter>
       <Filter>completed</Filter>

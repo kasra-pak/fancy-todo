@@ -10,7 +10,7 @@ const Wrapper = styled.ul`
   justify-content: center;
   gap: 1.5em;
   padding: 1em;
-  box-shadow: ${({ theme }) => theme.shadows.shadow1};
+  box-shadow: ${({ elevated, theme }) => elevated ? theme.shadows.shadow1 : 'none'};
   border-radius: ${({ theme }) => theme.roundBorder};
 `;
 

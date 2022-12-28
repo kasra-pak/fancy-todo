@@ -19,7 +19,7 @@ const Main = () => {
         <Item>Pick up groceries</Item>
         <Item>Complete Todo App on Frontend Mentor</Item>
       </Items>
-      <Filters />
+      <Filters elevated />
     </Wrapper>
   );
 };
