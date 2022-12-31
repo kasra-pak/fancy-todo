@@ -2,19 +2,22 @@ import styled from "styled-components";
 
 const Wrapper = styled.ul`
   list-style: none;
-  font-size: ${({ theme }) => theme.fonts.font2};
   font-weight: 700;
   text-transform: capitalize;
+  background-color: white;
   color: ${({ theme }) => theme.light.color4};
   display: flex;
   justify-content: center;
-  gap: 1.5em;
-  padding: 1em;
+  align-items: center;
+  gap: 1.1em;
+  /* height: 48px; */
+  border-radius: ${({ elevated, theme }) => elevated ? theme.roundBorder : 'none'};
+  padding: ${({ elevated }) => elevated ? '1em' : 'none'};
   box-shadow: ${({ elevated, theme }) => elevated ? theme.shadows.shadow1 : 'none'};
-  border-radius: ${({ theme }) => theme.roundBorder};
 `;
 
 const Filter = styled.li`
+  font-size: ${({ theme }) => theme.fonts.font2};
   color: ${({ active, theme }) => active ? theme.general.color1 : 'inherit'};
   transition: color .2s ease;
 

@@ -4,11 +4,10 @@ import crossImg from '@assets/images/icon-cross.svg';
 import checkImg from '@assets/images/icon-check.svg';
 
 const Wrapper = styled.li`
-  font-size: ${({ theme }) => theme.fonts.font1};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1em;
+  gap: .75em;
   cursor: grab;
 
   &:active {
@@ -72,6 +71,7 @@ const CompleteBtn = styled.button`
 `;
 
 const Text = styled.p`
+  font-size: ${({ theme }) => theme.fonts.font1};
   flex: 1 1 100%;
   line-height: 1;
   text-decoration-line: ${(props) => props.complete ? 'line-through' : 'none'};

@@ -28,9 +28,9 @@ const theme = {
   },
 
   fonts: {
-    font1: 'clamp(.7rem, 2.25vw, 1rem)',
-    font2: '.8rem',
-    font3: 'clamp(1.5rem, 5vw, 2.3rem)'
+    font1: 'clamp(.65rem, 2.25vw, 1rem)',
+    font2: '.75rem',
+    font3: 'clamp(1.5rem, 5vw, 2.3rem)',
   },
 
   circle: {

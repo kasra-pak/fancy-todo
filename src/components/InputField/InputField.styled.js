@@ -10,19 +10,20 @@ const Wrapper = styled.div`
     width: ${({ theme }) => theme.circle.size1};
     aspect-ratio: 1;
     position: absolute;
-    top: 47%;
-    left: clamp(1em, 3.5vw, 1.5em);
+    top: 50%;
+    left: clamp(1.08em, 3.5vw, 1.5em);
     transform: translateY(-50%);
   }
 `;
 
 const Input = styled.input`
-  width: 100%;
-  /* min-height: 50px; */
   font-size: ${({ theme }) => theme.fonts.font1};
   color: ${({ theme }) => theme.light.color5};
   caret-color: ${({ theme }) => theme.general.color1};
-  padding: clamp(1.25em, 3vw, 1.25em) clamp(1em, 3vw, 1.5em) clamp(1.25em, 3vw, 1.25em) 4em;
+  line-height: 1;
+  width: 100%;
+  /* height: 50px; */
+  padding: clamp(1.55em, 3vw, 1.25em) clamp(1em, 3vw, 1.5em) clamp(1.55em, 3vw, 1.25em) 4.5em;
   border-radius: ${({ theme }) => theme.roundBorder};
   border: none;
   box-shadow: ${({ theme }) => theme.shadows.shadow1};
