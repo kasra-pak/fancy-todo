@@ -11,7 +11,7 @@ const Wrapper = styled.div`
     aspect-ratio: 1;
     position: absolute;
     top: 50%;
-    left: clamp(1.08em, 3.5vw, 1.5em);
+    left: clamp(1.08em, 3.5vw, 1.3em);
     transform: translateY(-50%);
   }
 `;
@@ -22,8 +22,7 @@ const Input = styled.input`
   caret-color: ${({ theme }) => theme.general.color1};
   line-height: 1;
   width: 100%;
-  /* height: 50px; */
-  padding: clamp(1.55em, 3vw, 1.25em) clamp(1em, 3vw, 1.5em) clamp(1.55em, 3vw, 1.25em) 4.5em;
+  padding: clamp(1rem, 3vw, 1.25rem) .65rem clamp(1rem, 3vw, 1.25rem) clamp(2.925rem, 7vw, 3.85rem);
   border-radius: ${({ theme }) => theme.roundBorder};
   border: none;
   box-shadow: ${({ theme }) => theme.shadows.shadow1};

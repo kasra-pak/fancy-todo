@@ -31,6 +31,7 @@ const theme = {
     font1: 'clamp(.65rem, 2.25vw, 1rem)',
     font2: '.75rem',
     font3: 'clamp(1.5rem, 5vw, 2.3rem)',
+    font4: 'clamp(.65rem, 2.25vw, .75rem)',
   },
 
   circle: {

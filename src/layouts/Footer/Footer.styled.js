@@ -5,7 +5,7 @@ const Wrapper = styled.footer`
   font-size: ${({ theme }) => theme.fonts.font2};
   text-align: center;
   max-width: 540px;
-  margin-block-start: 3em;
+  margin-block-start: clamp(3em, 4vw, 4em);
   margin-inline: auto;
 `;
 
