@@ -14,7 +14,8 @@ const Wrapper = styled.li`
     cursor: grabbing;
   }
 
-  /* Show DeleteBtn on hover */
+  /* Show DeleteBtn on hover or focus */
+  &:focus-within button,
   &:hover > button {
     opacity: 1;
     pointer-events: unset;
@@ -92,6 +93,11 @@ const DeleteBtn = styled.button`
   opacity: 0;
   pointer-events: none;
   transition: opacity .2s ease;
+
+  /* always visible on touchscreens */
+  @media (hover: none) {
+    opacity: 1
+  }
 `;
 
 export {
