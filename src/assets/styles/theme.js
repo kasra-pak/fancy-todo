@@ -39,6 +39,7 @@ const theme = {
   },
 
   roundBorder: '.35rem',
+  letterSpace: '-.25px',
 };
 
 // --Bright - Blue: hsl(220, 98 %, 61 %);

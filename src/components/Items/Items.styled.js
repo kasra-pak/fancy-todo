@@ -11,7 +11,7 @@ const Wrapper = styled.ul`
   
   & > * {
     padding-inline: clamp(1em, 3vw, 1.2em);
-    height: clamp(53px, 4.5vw, 64px);
+    height: clamp(53px, 8vw, 64px);
   }
   
   & > * + * {

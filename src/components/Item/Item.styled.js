@@ -72,10 +72,11 @@ const CompleteBtn = styled.button`
 
 const Text = styled.p`
   font-size: ${({ theme }) => theme.fonts.font1};
-  flex: 1 1 100%;
   line-height: 1;
+  letter-spacing: ${({ theme }) => theme.letterSpace};
   text-decoration-line: ${(props) => props.complete ? 'line-through' : 'none'};
   color: ${({ theme, complete }) => complete ? theme.light.color3 : 'inherit'};
+  flex: 1 1 100%;
 `;
 
 const DeleteBtn = styled.button`

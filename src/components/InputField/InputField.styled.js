@@ -21,8 +21,9 @@ const Input = styled.input`
   color: ${({ theme }) => theme.light.color5};
   caret-color: ${({ theme }) => theme.general.color1};
   line-height: 1;
+  letter-spacing: ${({ theme }) => theme.letterSpace};
   width: 100%;
-  padding: clamp(1rem, 3vw, 1.25rem) .65rem clamp(1rem, 3vw, 1.25rem) clamp(2.925rem, 7vw, 3.85rem);
+  padding: clamp(1rem, 3vw, 1.25rem) .65rem clamp(1rem, 3vw, 1.25rem) clamp(2.925rem, 9vw, 3.85rem);
   border-radius: ${({ theme }) => theme.roundBorder};
   border: none;
   box-shadow: ${({ theme }) => theme.shadows.shadow1};
