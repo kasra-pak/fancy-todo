@@ -39,7 +39,7 @@ const theme = {
   },
 
   roundBorder: '.35rem',
-  letterSpace: '-.25px',
+  letterSpace: 'clamp(-.25px, calc(1px - .15vw), 0px)',
 };
 
 // --Bright - Blue: hsl(220, 98 %, 61 %);
