@@ -92,6 +92,11 @@ const DeleteBtn = styled.button`
   opacity: 0;
   pointer-events: none;
   transition: opacity .2s ease;
+
+  /* always visible on touchscreens */
+  @media (hover: none) {
+    opacity: 1
+  }
 `;
 
 export {
