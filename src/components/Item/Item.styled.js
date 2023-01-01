@@ -51,7 +51,7 @@ const Border = styled.div`
 `;
 
 const CompleteBtn = styled.button`
-  background-color: ${({ theme }) => theme.light.color1};
+  background-color: white;
   width: ${({ theme }) => theme.circle.size1};
   aspect-ratio: 1;
   border: none;
