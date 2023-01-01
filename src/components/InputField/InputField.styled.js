@@ -26,7 +26,6 @@ const Input = styled.input`
   padding: clamp(1rem, 3vw, 1.25rem) .65rem clamp(1rem, 3vw, 1.25rem) clamp(2.925rem, 9vw, 3.85rem);
   border-radius: ${({ theme }) => theme.roundBorder};
   border: none;
-  box-shadow: ${({ theme }) => theme.shadows.shadow1};
 `;
 
 export { Wrapper, Input };

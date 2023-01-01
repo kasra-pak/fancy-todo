@@ -24,7 +24,7 @@ const theme = {
   },
 
   shadows: {
-    shadow1: '0 5px 15px -2px hsla(0, 100%, 0%, .15)',
+    shadow1: '0 25px 50px -12px hsla(0, 100%, 0%, .15)',
   },
 
   fonts: {
