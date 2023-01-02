@@ -10,8 +10,8 @@ const Wrapper = styled.ul`
   box-shadow: ${({ theme }) => theme.shadows.shadow1};
   
   & > * {
-    padding: clamp(1em, 3vw, 1.2em);
-    height: clamp(53px, 8vw, 64px);
+    padding-inline: clamp(1em, 3vw, 1.2em);
+    padding-block: clamp(.92em, 3vw, 1.08em);
   }
   
   & > * + * {
@@ -24,7 +24,6 @@ const Footer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  height: 53px;
   gap: .5em 0;
 `;
 
