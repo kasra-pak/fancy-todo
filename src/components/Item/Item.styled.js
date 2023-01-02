@@ -79,6 +79,7 @@ const Text = styled.p`
   text-decoration-line: ${(props) => props.complete ? 'line-through' : 'none'};
   color: ${({ theme, complete }) => complete ? theme.light.color3 : 'inherit'};
   flex: 1 1 50%;
+  margin-bottom: -2px;
 `;
 
 const DeleteBtn = styled.button`
