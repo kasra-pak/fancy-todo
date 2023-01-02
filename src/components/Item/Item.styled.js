@@ -25,6 +25,8 @@ const Wrapper = styled.li`
 
 const Border = styled.div`
   background-color: ${({ theme }) => theme.light.color3};
+  width: ${({ theme }) => theme.circle.size1};
+  aspect-ratio: 1;
   border-radius: 100%;
   padding: ${({ complete }) => complete ? '0' : '1px'};
   cursor: pointer;
@@ -53,8 +55,7 @@ const Border = styled.div`
 
 const CompleteBtn = styled.button`
   background-color: white;
-  width: ${({ theme }) => theme.circle.size1};
-  aspect-ratio: 1;
+  width: inherit;
   border: none;
   border-radius: inherit;
   cursor: inherit;
