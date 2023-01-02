@@ -5,6 +5,7 @@ import checkImg from '@assets/images/icon-check.svg';
 
 const Wrapper = styled.li`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: clamp(.75em, 3vw, 1.25em);
@@ -56,7 +57,6 @@ const CompleteBtn = styled.button`
   aspect-ratio: 1;
   border: none;
   border-radius: inherit;
-  flex-shrink: 0;
   cursor: inherit;
   /* Always in front; even when hovering */
   position: relative;
@@ -77,7 +77,7 @@ const Text = styled.p`
   letter-spacing: ${({ theme }) => theme.letterSpace};
   text-decoration-line: ${(props) => props.complete ? 'line-through' : 'none'};
   color: ${({ theme, complete }) => complete ? theme.light.color3 : 'inherit'};
-  flex: 1 1 100%;
+  flex: 1 1 50%;
 `;
 
 const DeleteBtn = styled.button`
@@ -88,7 +88,6 @@ const DeleteBtn = styled.button`
   background-size: cover;
   width: 13px;
   aspect-ratio: 1;
-  flex-shrink: 0;
   cursor: pointer;
   opacity: 0;
   pointer-events: none;

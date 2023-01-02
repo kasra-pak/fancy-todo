@@ -23,7 +23,7 @@ const Input = styled.input`
   line-height: 1;
   letter-spacing: ${({ theme }) => theme.letterSpace};
   width: 100%;
-  padding: clamp(1rem, 3vw, 1.25rem) .65rem clamp(1rem, 3vw, 1.25rem) clamp(2.925rem, 9vw, 3.85rem);
+  padding: clamp(1rem, 3vw, 1.25rem) clamp(1.08rem, 3.5vw, 1.3rem) clamp(1rem, 3vw, 1.25rem) clamp(2.925rem, 9vw, 3.85rem);
   border-radius: ${({ theme }) => theme.roundBorder};
   border: none;
 `;

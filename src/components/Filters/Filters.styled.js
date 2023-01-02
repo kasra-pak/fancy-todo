@@ -7,10 +7,10 @@ const Wrapper = styled.ul`
   background-color: white;
   color: ${({ theme }) => theme.light.color4};
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 1.1em;
-  /* height: 48px; */
   border-radius: ${({ elevated, theme }) => elevated ? theme.roundBorder : 'none'};
   padding: ${({ elevated }) => elevated ? '1em' : 'none'};
   box-shadow: ${({ elevated, theme }) => elevated ? theme.shadows.shadow1 : 'none'};

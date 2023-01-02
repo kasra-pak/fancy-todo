@@ -32,7 +32,8 @@ const GlobalStyle = createGlobalStyle`${css`
     margin: 0;
   }
 
-  ul {
+  ul,
+  button {
     padding: 0;
   }
 

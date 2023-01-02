@@ -4,6 +4,7 @@ import moonImg from "@assets/images/icon-moon.svg";
 
 const Wrapper = styled.header`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
   max-width: 540px;
