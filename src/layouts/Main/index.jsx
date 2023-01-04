@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, shallowEqual } from "react-redux";
 
 import InputField from "@components/InputField";
 import Items from "@components/Items";
@@ -8,9 +8,11 @@ import Filters from "@components/Filters";
 
 import { Wrapper } from "./Main.styled";
 
+const selectTodoIds = state => state.todos.map(todo => todo.id);
+
 const Main = () => {
-  const todoIds = useSelector(state => state.todos.map(todo => todo.id));
   const [matches, setMatches] = useState(false);
+  const todoIds = useSelector(selectTodoIds, shallowEqual);
 
   useEffect(() => {
     const query = "(max-width: 599px)";
