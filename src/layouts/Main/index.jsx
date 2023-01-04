@@ -9,7 +9,7 @@ import Filters from "@components/Filters";
 import { Wrapper } from "./Main.styled";
 
 const Main = () => {
-  const todos = useSelector(state => state.todos);
+  const todoIds = useSelector(state => state.todos.map(todo => todo.id));
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
@@ -27,10 +27,8 @@ const Main = () => {
     <Wrapper>
       <InputField placeholder="Create a new todo..." />
       <Items>
-        {todos.map(todo => (
-          <Item key={todo.id} complete={todo.completed}>
-            {todo.text}
-          </Item>
+        {todoIds.map(id => (
+          <Item key={id} id={id}></Item>
         ))}
       </Items>
       {matches && <Filters elevated />}
