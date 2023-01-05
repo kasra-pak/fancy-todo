@@ -3,12 +3,13 @@ import React, { useEffect, useState } from "react";
 import Filters from "@components/Filters";
 
 import { Wrapper, Footer, ItemCount, ClearBtn } from "./Items.styled";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const selectIncompleteTodosCount = state =>
   state.todos.filter(todo => !todo.completed).length;
 
 const Items = ({ children }) => {
+  const dispatch = useDispatch();
   const incompleteTodosCount = useSelector(selectIncompleteTodosCount);
   const [matches, setMatches] = useState(false);
 
@@ -23,6 +24,10 @@ const Items = ({ children }) => {
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
+  const handleClearCompleted = () => {
+    dispatch({ type: "CLEAR_COMPLETED" });
+  };
+
   return (
     <Wrapper>
       {children}
@@ -32,7 +37,7 @@ const Items = ({ children }) => {
           left
         </ItemCount>
         {matches && <Filters />}
-        <ClearBtn>clear completed</ClearBtn>
+        <ClearBtn onClick={handleClearCompleted}>clear completed</ClearBtn>
       </Footer>
     </Wrapper>
   );
