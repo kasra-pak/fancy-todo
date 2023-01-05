@@ -7,6 +7,7 @@ const initialState = {
     { id: '5', text: 'Pick up groceries', completed: false },
     { id: '6', text: 'Complete Todo App on Frontend Mentor', completed: false }
   ],
+  filter: 'All'
 };
 
 const newTodoId = (todos) => todos.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1;
@@ -50,6 +51,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         todos: state.todos.filter(todo => !todo.completed)
+      };
+    }
+
+    case 'TOGGLE_FILTER': {
+      return {
+        ...state,
+        filter: action.payload
       };
     }
 
