@@ -6,10 +6,13 @@ import { Wrapper, Border, CompleteBtn, Text, DeleteBtn } from "./Item.styled";
 const selectTodoById = (todos, todoId) =>
   todos.find(todo => todo.id === todoId);
 
+const selectFilter = state => state.filter;
+
 const Item = ({ id }) => {
   const dispatch = useDispatch();
 
   const todoData = useSelector(state => selectTodoById(state.todos, id));
+  const filter = useSelector(selectFilter);
 
   const handleToggle = event => {
     dispatch({ type: "TOGGLE_TODO", payload: event.target.dataset.id });
@@ -18,6 +21,14 @@ const Item = ({ id }) => {
   const handleDelete = event => {
     dispatch({ type: "DELETE_TODO", payload: event.target.dataset.id });
   };
+
+  if (filter === "Completed" && !todoData.completed) {
+    return null;
+  }
+
+  if (filter === "Active" && todoData.completed) {
+    return null;
+  }
 
   return (
     <Wrapper>
