@@ -3,8 +3,13 @@ import React, { useEffect, useState } from "react";
 import Filters from "@components/Filters";
 
 import { Wrapper, Footer, ItemCount, ClearBtn } from "./Items.styled";
+import { useSelector } from "react-redux";
+
+const selectIncompleteTodosCount = state =>
+  state.todos.filter(todo => !todo.completed).length;
 
 const Items = ({ children }) => {
+  const incompleteTodosCount = useSelector(selectIncompleteTodosCount);
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
@@ -22,7 +27,10 @@ const Items = ({ children }) => {
     <Wrapper>
       {children}
       <Footer>
-        <ItemCount>5 items left</ItemCount>
+        <ItemCount>
+          {incompleteTodosCount} item{incompleteTodosCount === 1 ? "" : "s"}{" "}
+          left
+        </ItemCount>
         {matches && <Filters />}
         <ClearBtn>clear completed</ClearBtn>
       </Footer>
