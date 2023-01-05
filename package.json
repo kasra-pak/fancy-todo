@@ -28,7 +28,6 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "@redux-devtools/extension": "^3.2.3",
     "@reduxjs/toolkit": "^1.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
