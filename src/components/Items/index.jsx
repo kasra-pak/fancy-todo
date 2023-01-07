@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-
-import Filters from "@components/Filters";
-
-import { Wrapper, Footer, ItemCount, ClearBtn } from "./Items.styled";
 import { useDispatch, useSelector } from "react-redux";
 
-const selectIncompleteTodosCount = state =>
-  state.todos.filter(todo => !todo.completed).length;
+import Filters from "@components/Filters";
+import { selectIncompleteTodosCount } from "@reducers/rootReducer";
+import { Wrapper, Footer, ItemCount, ClearBtn } from "./Items.styled";
 
 const Items = ({ children }) => {
   const dispatch = useDispatch();

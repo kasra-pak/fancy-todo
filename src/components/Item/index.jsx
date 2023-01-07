@@ -1,16 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { selectFilter, selectTodoById } from "@reducers/rootReducer";
 import { Wrapper, Border, CompleteBtn, Text, DeleteBtn } from "./Item.styled";
-
-const selectTodoById = (todos, todoId) =>
-  todos.find(todo => todo.id === todoId);
-
-const selectFilter = state => state.filter;
 
 const Item = ({ id }) => {
   const dispatch = useDispatch();
-
   const todoData = useSelector(state => selectTodoById(state.todos, id));
   const filter = useSelector(selectFilter);
 

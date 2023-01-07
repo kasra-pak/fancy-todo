@@ -1,13 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
+import { selectFilter } from "@reducers/rootReducer";
 import { Wrapper, Filter } from "./Filters.styled";
-
-const selectActiveFilter = state => state.filter;
 
 const Filters = ({ elevated }) => {
   const dispatch = useDispatch();
-  const activeFilter = useSelector(selectActiveFilter);
+  const activeFilter = useSelector(selectFilter);
 
   const handleFilterToggle = event => {
     const clickedFilter = event.target.dataset.filter;

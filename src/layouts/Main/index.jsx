@@ -6,9 +6,8 @@ import Items from "@components/Items";
 import Item from "@components/Item";
 import Filters from "@components/Filters";
 
+import { selectTodoIds } from "@reducers/rootReducer";
 import { Wrapper } from "./Main.styled";
-
-const selectTodoIds = state => state.todos.map(todo => todo.id);
 
 const Main = () => {
   const [matches, setMatches] = useState(false);
