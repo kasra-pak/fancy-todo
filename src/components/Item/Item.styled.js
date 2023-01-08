@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 
-import crossImg from '@assets/images/icon-cross.svg';
+import lightCrossImg from '@assets/images/icon-cross-light.svg';
+import darkCrossImg from '@assets/images/icon-cross-dark.svg';
 import checkImg from '@assets/images/icon-check.svg';
 
 const Wrapper = styled.li`
@@ -24,7 +25,7 @@ const Wrapper = styled.li`
 `;
 
 const Border = styled.div`
-  background-color: ${({ theme }) => theme.light.color3};
+  background-color: ${({ theme }) => theme.variationColors.border2};
   width: ${({ theme }) => theme.circle.size1};
   aspect-ratio: 1;
   border-radius: 100%;
@@ -42,7 +43,7 @@ const Border = styled.div`
     content: '';
     position: absolute;
     inset: 0;
-    background-image: ${({ theme }) => theme.general.color2};
+    background-image: ${({ theme }) => theme.generalColors.color2};
     border-radius: inherit;
     opacity: 0;
     transition: opacity .2s ease;
@@ -54,7 +55,7 @@ const Border = styled.div`
 `;
 
 const CompleteBtn = styled.button`
-  background-color: white;
+  background-color: ${({ theme }) => theme.variationColors.bg2};
   width: inherit;
   border: none;
   border-radius: inherit;
@@ -65,7 +66,7 @@ const CompleteBtn = styled.button`
 
   /* completed items style */
   ${({ complete }) => complete && css`
-    background-image: url(${checkImg}), ${({ theme }) => theme.general.color2};
+    background-image: url(${checkImg}), ${({ theme }) => theme.generalColors.color2};
     background-repeat: no-repeat;
     background-position: center;
     background-size: 50%, cover;
@@ -77,7 +78,7 @@ const Text = styled.p`
   line-height: 1;
   letter-spacing: ${({ theme }) => theme.letterSpace};
   text-decoration-line: ${(props) => props.complete ? 'line-through' : 'none'};
-  color: ${({ theme, complete }) => complete ? theme.light.color3 : 'inherit'};
+  color: ${({ theme, complete }) => complete ? theme.variationColors.text3 : 'inherit'};
   flex: 1 1 50%;
   margin-bottom: -2px;
 `;
@@ -85,10 +86,10 @@ const Text = styled.p`
 const DeleteBtn = styled.button`
   background-color: transparent;
   border: none;
-  background-image: url(${crossImg});
+  background-image: ${({ theme }) => theme.name === 'light' ? `url(${lightCrossImg})` : `url(${darkCrossImg})`} ;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 13px;
+  width: clamp(13px, 2vw, 18px);
   aspect-ratio: 1;
   cursor: pointer;
   opacity: 0;

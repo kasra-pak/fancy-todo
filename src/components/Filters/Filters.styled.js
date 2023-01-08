@@ -4,8 +4,8 @@ const Wrapper = styled.ul`
   list-style: none;
   font-weight: 700;
   text-transform: capitalize;
-  background-color: white;
-  color: ${({ theme }) => theme.light.color4};
+  background-color: ${({ theme }) => theme.variationColors.bg2};
+  color: ${({ theme }) => theme.variationColors.text4};
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -18,11 +18,11 @@ const Wrapper = styled.ul`
 
 const Filter = styled.li`
   font-size: ${({ theme }) => theme.fonts.font2};
-  color: ${({ active, theme }) => active ? theme.general.color1 : 'inherit'};
+  color: ${({ active, theme }) => active ? theme.generalColors.color1 : 'inherit'};
   transition: color .2s ease;
 
   &:hover {
-    color: ${({ active, theme }) => !active && theme.light.color5};
+    color: ${({ active, theme }) => !active && theme.variationColors.text1};
     cursor: pointer;
   }
 `;

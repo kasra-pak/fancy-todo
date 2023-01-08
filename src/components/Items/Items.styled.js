@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const Wrapper = styled.ul`
-  background-color: white;
-  color: ${({ theme }) => theme.light.color5};
+  background-color: ${({ theme }) => theme.variationColors.bg2};
+  color: ${({ theme }) => theme.variationColors.text2};
   display: flex;
   flex-direction: column;
   margin-block: clamp(1em, 3vw, 1.4em);
@@ -15,7 +15,7 @@ const Wrapper = styled.ul`
   }
   
   & > * + * {
-    border-top: 1px solid ${({ theme }) => theme.light.color2};
+    border-top: 1px solid ${({ theme }) => theme.variationColors.border1};
   }
 `;
 
@@ -29,21 +29,21 @@ const Footer = styled.div`
 
 const ItemCount = styled.p`
   font-size: ${({ theme }) => theme.fonts.font4};
-  color: ${({ theme }) => theme.light.color4};
+  color: ${({ theme }) => theme.variationColors.text4};
   margin-inline-end: 3.25em;
 `;
 
 const ClearBtn = styled.button`
   font-size: ${({ theme }) => theme.fonts.font4};
   text-transform: capitalize;
-  color: ${({ theme }) => theme.light.color4};
+  color: ${({ theme }) => theme.variationColors.text4};
   background-color: transparent;
   border: none;
   cursor: pointer;
   transition: color .2s ease;
   
   :hover {
-    color: ${({ theme }) => theme.light.color5};
+    color: ${({ theme }) => theme.variationColors.text1};
   }
 `;
 

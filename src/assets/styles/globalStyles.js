@@ -1,7 +1,6 @@
 import { createGlobalStyle, css } from "styled-components";
 
-import mobileBG from '@assets/images/bg-mobile-light.jpg';
-import desktopBG from '@assets/images/bg-desktop-light.jpg';
+
 
 const GlobalStyle = createGlobalStyle`${css`
   *,
@@ -39,8 +38,8 @@ const GlobalStyle = createGlobalStyle`${css`
 
   body {
     font-family: "Josefin Sans", sans-serif;
-    background-color: ${({ theme }) => theme.light.color1};
-    background-image: url(${mobileBG});
+    background-color: ${({ theme }) => theme.variationColors.bg1};
+    background-image: ${({ theme }) => theme.backgrounds.mobile};
     background-repeat: no-repeat;
     background-size: cover contain;
     background-position: top center;
@@ -48,7 +47,7 @@ const GlobalStyle = createGlobalStyle`${css`
     margin: 1.25em;
 
     @media screen and (min-width: 376px) {
-      background-image: url(${desktopBG});
+      background-image: ${({ theme }) => theme.backgrounds.desktop};
     }
 
     @media screen and (min-width: 1441px) {
@@ -57,8 +56,8 @@ const GlobalStyle = createGlobalStyle`${css`
   }
 
   *::selection {
-    color: ${({ theme }) => theme.dark.color1};
-    background-color: ${({ theme }) => theme.general.color1};
+    /* color: ${({ theme }) => theme.variationColors.color1}; */
+    background-color: ${({ theme }) => theme.generalColors.color1};
   }
 
   img,

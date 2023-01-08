@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import moonImg from "@assets/images/icon-moon.svg";
+import sunImg from "@assets/images/icon-sun.svg";
 
 const Wrapper = styled.header`
   display: flex;
@@ -13,7 +14,7 @@ const Wrapper = styled.header`
 `;
 
 const Title = styled.h1`
-  color: ${({ theme }) => theme.light.color1};
+  color: ${({ theme }) => theme.generalColors.white};
   font-size: ${({ theme }) => theme.fonts.font3};
   text-transform: uppercase;
   letter-spacing: clamp(10px, 1.5vw, 13px);
@@ -21,7 +22,7 @@ const Title = styled.h1`
 `;
 
 const ThemeToggler = styled.button`
-  background-image: url(${moonImg});
+  background-image: ${({ theme }) => theme.name === 'light' ? `url(${moonImg})` : `url(${sunImg})`};
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: cover;

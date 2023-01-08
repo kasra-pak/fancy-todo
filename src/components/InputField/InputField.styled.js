@@ -5,7 +5,7 @@ const Wrapper = styled.div`
 
   span {
     display: inline-block;
-    border: 1px solid ${({ theme }) => theme.light.color3};
+    border: 1px solid ${({ theme }) => theme.variationColors.border2};
     border-radius: 100%;
     width: ${({ theme }) => theme.circle.size1};
     aspect-ratio: 1;
@@ -18,8 +18,9 @@ const Wrapper = styled.div`
 
 const Input = styled.input`
   font-size: ${({ theme }) => theme.fonts.font1};
-  color: ${({ theme }) => theme.light.color5};
-  caret-color: ${({ theme }) => theme.general.color1};
+  background-color: ${({ theme }) => theme.variationColors.bg2};
+  color: ${({ theme }) => theme.variationColors.text2};
+  caret-color: ${({ theme }) => theme.generalColors.color1};
   line-height: 1;
   letter-spacing: ${({ theme }) => theme.letterSpace};
   width: 100%;
