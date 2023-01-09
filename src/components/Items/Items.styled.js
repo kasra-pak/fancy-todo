@@ -27,12 +27,6 @@ const Footer = styled.div`
   gap: .5em 0;
 `;
 
-const ItemCount = styled.p`
-  font-size: ${({ theme }) => theme.fonts.font4};
-  color: ${({ theme }) => theme.variationColors.text4};
-  margin-inline-end: 3.25em;
-`;
-
 const ClearBtn = styled.button`
   font-size: ${({ theme }) => theme.fonts.font4};
   text-transform: capitalize;
@@ -48,4 +42,4 @@ const ClearBtn = styled.button`
 `;
 
 
-export { Wrapper, Footer, ItemCount, ClearBtn };
+export { Wrapper, Footer, ClearBtn };

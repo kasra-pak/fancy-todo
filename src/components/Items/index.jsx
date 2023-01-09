@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import Filters from "@components/Filters";
-import { selectIncompleteTodosCount } from "@reducers/rootReducer";
-import { Wrapper, Footer, ItemCount, ClearBtn } from "./Items.styled";
+import ItemCount from "@components/ItemCount";
+import { Wrapper, Footer, ClearBtn } from "./Items.styled";
 
 const Items = ({ children }) => {
   const dispatch = useDispatch();
-  const incompleteTodosCount = useSelector(selectIncompleteTodosCount);
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
@@ -29,10 +28,7 @@ const Items = ({ children }) => {
     <Wrapper>
       {children}
       <Footer>
-        <ItemCount>
-          {incompleteTodosCount} item{incompleteTodosCount === 1 ? "" : "s"}{" "}
-          left
-        </ItemCount>
+        <ItemCount />
         {matches && <Filters />}
         <ClearBtn onClick={handleClearCompleted}>clear completed</ClearBtn>
       </Footer>
