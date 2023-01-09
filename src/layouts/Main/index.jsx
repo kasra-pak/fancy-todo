@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useSelector, shallowEqual } from "react-redux";
 
 import InputField from "@components/InputField";
 import Items from "@components/Items";
-import Item from "@components/Item";
 import Filters from "@components/Filters";
 
-import { selectTodoIds } from "@reducers/rootReducer";
 import { Wrapper } from "./Main.styled";
 
 const Main = () => {
   const [matches, setMatches] = useState(false);
-  const todoIds = useSelector(selectTodoIds, shallowEqual);
 
   useEffect(() => {
     const query = "(max-width: 599px)";
@@ -27,11 +23,7 @@ const Main = () => {
   return (
     <Wrapper>
       <InputField placeholder="Create a new todo..." />
-      <Items>
-        {todoIds.map(id => (
-          <Item key={id} id={id}></Item>
-        ))}
-      </Items>
+      <Items />
       {matches && <Filters elevated />}
     </Wrapper>
   );

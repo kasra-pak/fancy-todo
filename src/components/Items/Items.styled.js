@@ -1,6 +1,15 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const Wrapper = styled.ul`
+const padding = css`
+  padding-inline: clamp(1em, 3vw, 1.2em);
+  padding-block: clamp(.92em, 3vw, 1.08em);
+`;
+
+const borderTop = css`
+  border-top: 1px solid ${({ theme }) => theme.variationColors.border1};
+`;
+
+const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.variationColors.bg2};
   color: ${({ theme }) => theme.variationColors.text2};
   display: flex;
@@ -8,14 +17,15 @@ const Wrapper = styled.ul`
   margin-block: clamp(1em, 3vw, 1.4em);
   border-radius: ${({ theme }) => theme.roundBorder};
   box-shadow: ${({ theme }) => theme.shadows.shadow1};
-  
-  & > * {
-    padding-inline: clamp(1em, 3vw, 1.2em);
-    padding-block: clamp(.92em, 3vw, 1.08em);
+`;
+
+const TodosList = styled.ul`
+  & > li {
+    ${padding}
   }
-  
-  & > * + * {
-    border-top: 1px solid ${({ theme }) => theme.variationColors.border1};
+
+  & > li + li {
+    ${borderTop}
   }
 `;
 
@@ -25,6 +35,8 @@ const Footer = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: .5em 0;
+  ${padding}
+  ${borderTop}
 `;
 
 const ClearBtn = styled.button`
@@ -42,4 +54,4 @@ const ClearBtn = styled.button`
 `;
 
 
-export { Wrapper, Footer, ClearBtn };
+export { Wrapper, TodosList, Footer, ClearBtn };

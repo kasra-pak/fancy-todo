@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 
+import { selectTodoIds } from "@reducers/rootReducer";
+import Item from "@components/Item";
 import Filters from "@components/Filters";
 import ItemCount from "@components/ItemCount";
-import { Wrapper, Footer, ClearBtn } from "./Items.styled";
 
-const Items = ({ children }) => {
+import { Wrapper, TodosList, Footer, ClearBtn } from "./Items.styled";
+
+const Items = () => {
   const dispatch = useDispatch();
+  const todoIds = useSelector(selectTodoIds, shallowEqual);
   const [matches, setMatches] = useState(false);
 
   useEffect(() => {
@@ -26,7 +30,11 @@ const Items = ({ children }) => {
 
   return (
     <Wrapper>
-      {children}
+      <TodosList>
+        {todoIds.map(id => (
+          <Item key={id} id={id}></Item>
+        ))}
+      </TodosList>
       <Footer>
         <ItemCount />
         {matches && <Filters />}
