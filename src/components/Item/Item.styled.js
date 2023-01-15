@@ -11,6 +11,8 @@ const Wrapper = styled.li`
   align-items: center;
   gap: clamp(.75em, 3vw, 1.25em);
   cursor: grab;
+  user-select: none;
+  transition: transform .2s ease-out;
 
   &:active {
     cursor: grabbing;
@@ -20,7 +22,7 @@ const Wrapper = styled.li`
   &:focus-within button,
   &:hover > button {
     opacity: 1;
-    pointer-events: unset;
+    pointer-events: auto;
   }
 `;
 
