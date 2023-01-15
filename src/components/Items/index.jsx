@@ -98,6 +98,14 @@ const Items = () => {
     setCurrIndex(null);
   };
 
+  if (todoIds.length === 0) {
+    return (
+      <S.Wrapper>
+        <S.EmptyListText>Nothing to do! Enjoy your day.</S.EmptyListText>
+      </S.Wrapper>
+    );
+  }
+
   return (
     <S.Wrapper>
       <S.TodosList onMouseMove={handleMouseMove}>

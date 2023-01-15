@@ -18,6 +18,7 @@ const Wrapper = styled.div`
   overflow: hidden;
   border-radius: ${({ theme }) => theme.roundBorder};
   box-shadow: ${({ theme }) => theme.shadows.shadow1};
+  min-height: clamp(200px, 50vw, 350px);
 `;
 
 const TodosList = styled.ul`
@@ -28,9 +29,10 @@ const TodosList = styled.ul`
   & > li + li {
     ${borderTop}
   }
-`;
+  `;
 
 const Footer = styled.div`
+  margin-top: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -40,4 +42,12 @@ const Footer = styled.div`
   ${borderTop}
 `;
 
-export { Wrapper, TodosList, Footer };
+const EmptyListText = styled.p`
+  font-size: clamp(.8rem, 2.5vw, 1rem);
+  text-align: center;
+  line-height: 1.25;
+  color: ${({ theme }) => theme.variationColors.text3};
+  margin-block: auto;
+`;
+
+export { Wrapper, TodosList, Footer, EmptyListText };;
