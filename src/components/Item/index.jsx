@@ -6,27 +6,10 @@ import * as S from "./Item.styled";
 
 const Item = forwardRef(
   ({ id, handleMouseDown, handleMouseUp, draggingElIndex, currIndex }, ref) => {
+    const [trans, setTrans] = useState(0);
     const dispatch = useDispatch();
     const todoData = useSelector(state => selectTodoById(state.todos, id));
     const filter = useSelector(selectFilter);
-
-    const handleToggle = event => {
-      dispatch({ type: "TOGGLE_TODO", payload: event.target.dataset.id });
-    };
-
-    const handleDelete = event => {
-      dispatch({ type: "DELETE_TODO", payload: event.target.dataset.id });
-    };
-
-    if (filter === "Completed" && !todoData.completed) {
-      return null;
-    }
-
-    if (filter === "Active" && todoData.completed) {
-      return null;
-    }
-
-    const [trans, setTrans] = useState(0);
 
     useEffect(() => {
       if (draggingElIndex !== null) {
@@ -59,6 +42,22 @@ const Item = forwardRef(
         setTrans(0);
       }
     }, [currIndex, draggingElIndex]);
+
+    const handleToggle = event => {
+      dispatch({ type: "TOGGLE_TODO", payload: event.target.dataset.id });
+    };
+
+    const handleDelete = event => {
+      dispatch({ type: "DELETE_TODO", payload: event.target.dataset.id });
+    };
+
+    if (filter === "Completed" && !todoData.completed) {
+      return null;
+    }
+
+    if (filter === "Active" && todoData.completed) {
+      return null;
+    }
 
     return (
       <S.Wrapper
