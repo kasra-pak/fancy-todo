@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-block: clamp(1em, 3vw, 1.4em);
+  overflow: hidden;
   border-radius: ${({ theme }) => theme.roundBorder};
   box-shadow: ${({ theme }) => theme.shadows.shadow1};
 `;
