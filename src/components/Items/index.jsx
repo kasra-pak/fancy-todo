@@ -1,15 +1,15 @@
 import React, { useState, useEffect, createRef } from "react";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { useSelector, shallowEqual } from "react-redux";
 
 import { selectTodoIds } from "@reducers/rootReducer";
 import Item from "@components/Item";
 import Filters from "@components/Filters";
 import ItemCount from "@components/ItemCount";
+import ClearBtn from "@components/ClearBtn";
 
 import * as S from "./Items.styled";
 
 const Items = () => {
-  const dispatch = useDispatch();
   const todoIds = useSelector(selectTodoIds, shallowEqual);
   const [matches, setMatches] = useState(false);
 
@@ -23,10 +23,6 @@ const Items = () => {
 
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
-
-  const handleClearCompleted = () => {
-    dispatch({ type: "CLEAR_COMPLETED" });
-  };
 
   /// drag n drop ///
   const [draggingEl, setDraggingEl] = useState(null);
@@ -128,7 +124,7 @@ const Items = () => {
       <S.Footer>
         <ItemCount />
         {matches && <Filters />}
-        <S.ClearBtn onClick={handleClearCompleted}>clear completed</S.ClearBtn>
+        <ClearBtn />
       </S.Footer>
     </S.Wrapper>
   );

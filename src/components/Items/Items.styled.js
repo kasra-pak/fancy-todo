@@ -40,19 +40,4 @@ const Footer = styled.div`
   ${borderTop}
 `;
 
-const ClearBtn = styled.button`
-  font-size: ${({ theme }) => theme.fonts.font4};
-  text-transform: capitalize;
-  color: ${({ theme }) => theme.variationColors.text4};
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  transition: color .2s ease;
-  
-  :hover {
-    color: ${({ theme }) => theme.variationColors.text1};
-  }
-`;
-
-
-export { Wrapper, TodosList, Footer, ClearBtn };
+export { Wrapper, TodosList, Footer };
