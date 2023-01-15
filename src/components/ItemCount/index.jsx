@@ -1,16 +1,27 @@
 import React from "react";
 
 import { useSelector } from "react-redux";
-import { selectIncompleteTodosCount } from "@reducers/rootReducer";
+import {
+  selectFilter,
+  selectIncompleteTodosCount,
+  selectCompleteTodosCount,
+} from "@reducers/rootReducer";
 
 import * as S from "./ItemCount.styled";
 
 const ItemCount = () => {
+  const filter = useSelector(selectFilter);
   const incompleteTodosCount = useSelector(selectIncompleteTodosCount);
+  const completeTodosCount = useSelector(selectCompleteTodosCount);
 
-  return (
+  const format = count => `${count} item${count === 1 ? "" : "s"}`;
+
+  return filter === "Completed" ? (
+    <S.Wrapper>{format(completeTodosCount)}</S.Wrapper>
+  ) : (
     <S.Wrapper>
-      {incompleteTodosCount} item{incompleteTodosCount === 1 ? "" : "s"} left
+      {format(incompleteTodosCount)}
+      {filter === "All" ? " left" : null}
     </S.Wrapper>
   );
 };
