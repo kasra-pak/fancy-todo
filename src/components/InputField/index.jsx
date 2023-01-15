@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { Wrapper, Input } from "./InputField.styled";
+import * as S from "./InputField.styled";
 
 const InputField = ({ placeholder }) => {
   const [value, setValue] = useState("");
@@ -18,16 +18,16 @@ const InputField = ({ placeholder }) => {
   };
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       <span></span>
-      <Input
+      <S.Input
         type="text"
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

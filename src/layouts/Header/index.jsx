@@ -1,5 +1,5 @@
 import React from "react";
-import { Wrapper, Title, ThemeToggler } from "./Header.styled.js";
+import * as S from "./Header.styled";
 
 const Header = ({ currentTheme, toggleTheme }) => {
   const handleThemeToggle = () => {
@@ -7,12 +7,12 @@ const Header = ({ currentTheme, toggleTheme }) => {
   };
 
   return (
-    <Wrapper>
-      <Title>todo</Title>
-      <ThemeToggler onClick={handleThemeToggle}>
+    <S.Wrapper>
+      <S.Title>todo</S.Title>
+      <S.ThemeToggler onClick={handleThemeToggle}>
         {/* <img src={moonImg} alt="moon" /> */}
-      </ThemeToggler>
-    </Wrapper>
+      </S.ThemeToggler>
+    </S.Wrapper>
   );
 };
 

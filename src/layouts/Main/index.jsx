@@ -4,7 +4,7 @@ import InputField from "@components/InputField";
 import Items from "@components/Items";
 import Filters from "@components/Filters";
 
-import { Wrapper } from "./Main.styled";
+import * as S from "./Main.styled";
 
 const Main = () => {
   const [matches, setMatches] = useState(false);
@@ -21,11 +21,11 @@ const Main = () => {
   }, []);
 
   return (
-    <Wrapper>
+    <S.Wrapper>
       <InputField placeholder="Create a new todo..." />
       <Items />
       {matches && <Filters elevated />}
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

@@ -6,7 +6,7 @@ import Item from "@components/Item";
 import Filters from "@components/Filters";
 import ItemCount from "@components/ItemCount";
 
-import { Wrapper, TodosList, Footer, ClearBtn } from "./Items.styled";
+import * as S from "./Items.styled";
 
 const Items = () => {
   const dispatch = useDispatch();
@@ -111,8 +111,8 @@ const Items = () => {
   };
 
   return (
-    <Wrapper>
-      <TodosList onMouseMove={handleMouseMove}>
+    <S.Wrapper>
+      <S.TodosList onMouseMove={handleMouseMove}>
         {todoIds.map(id => (
           <Item
             key={id}
@@ -124,13 +124,13 @@ const Items = () => {
             handleMouseUp={handleMouseUp}
           ></Item>
         ))}
-      </TodosList>
-      <Footer>
+      </S.TodosList>
+      <S.Footer>
         <ItemCount />
         {matches && <Filters />}
-        <ClearBtn onClick={handleClearCompleted}>clear completed</ClearBtn>
-      </Footer>
-    </Wrapper>
+        <S.ClearBtn onClick={handleClearCompleted}>clear completed</S.ClearBtn>
+      </S.Footer>
+    </S.Wrapper>
   );
 };
 

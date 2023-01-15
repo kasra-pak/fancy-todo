@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectFilter } from "@reducers/rootReducer";
-import { Wrapper, Filter } from "./Filters.styled";
+import * as S from "./Filters.styled";
 
 const Filters = ({ elevated }) => {
   const dispatch = useDispatch();
@@ -16,17 +16,17 @@ const Filters = ({ elevated }) => {
   };
 
   return (
-    <Wrapper elevated={elevated} onClick={handleFilterToggle}>
-      <Filter data-filter="All" active={activeFilter === "All"}>
+    <S.Wrapper elevated={elevated} onClick={handleFilterToggle}>
+      <S.Filter data-filter="All" active={activeFilter === "All"}>
         all
-      </Filter>
-      <Filter data-filter="Active" active={activeFilter === "Active"}>
+      </S.Filter>
+      <S.Filter data-filter="Active" active={activeFilter === "Active"}>
         active
-      </Filter>
-      <Filter data-filter="Completed" active={activeFilter === "Completed"}>
+      </S.Filter>
+      <S.Filter data-filter="Completed" active={activeFilter === "Completed"}>
         completed
-      </Filter>
-    </Wrapper>
+      </S.Filter>
+    </S.Wrapper>
   );
 };
 

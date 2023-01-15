@@ -2,7 +2,7 @@ import React, { forwardRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectFilter, selectTodoById } from "@reducers/rootReducer";
-import { Wrapper, Border, CompleteBtn, Text, DeleteBtn } from "./Item.styled";
+import * as S from "./Item.styled";
 
 const Item = forwardRef(
   ({ id, handleMouseDown, handleMouseUp, draggingElIndex, currIndex }, ref) => {
@@ -61,23 +61,23 @@ const Item = forwardRef(
     }, [currIndex, draggingElIndex]);
 
     return (
-      <Wrapper
+      <S.Wrapper
         ref={ref}
         onMouseDown={handleMouseDown.bind(this, ref)}
         onMouseUp={handleMouseUp}
         style={{ transform: `translateY(${trans}px)` }}
       >
-        <Border complete={todoData.completed}>
-          <CompleteBtn
+        <S.Border complete={todoData.completed}>
+          <S.CompleteBtn
             type="button"
             complete={todoData.completed}
             onClick={handleToggle}
             data-id={id}
           />
-        </Border>
-        <Text complete={todoData.completed}>{todoData.text}</Text>
-        <DeleteBtn type="button" data-id={id} onClick={handleDelete} />
-      </Wrapper>
+        </S.Border>
+        <S.Text complete={todoData.completed}>{todoData.text}</S.Text>
+        <S.DeleteBtn type="button" data-id={id} onClick={handleDelete} />
+      </S.Wrapper>
     );
   }
 );

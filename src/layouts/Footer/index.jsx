@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Wrapper } from "./Footer.styled";
+import * as S from "./Footer.styled";
 
 const Footer = () => {
-  return <Wrapper>Drag and drop to reorder list</Wrapper>;
+  return <S.Wrapper>Drag and drop to reorder list</S.Wrapper>;
 };
 
 export default Footer;
