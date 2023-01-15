@@ -73,7 +73,9 @@ const selectTodoIds = state => state.todos.map(todo => todo.id);
 
 const selectIncompleteTodosCount = state => state.todos.filter(todo => !todo.completed).length;
 
+const selectCompleteTodosCount = state => state.todos.filter(todo => todo.completed).length;
+
 const selectTodoById = (state, todoId) => state.find(todo => todo.id === todoId);
 
-export { selectFilter, selectIncompleteTodosCount, selectTodoIds, selectTodoById };
+export { selectFilter, selectIncompleteTodosCount, selectCompleteTodosCount, selectTodoIds, selectTodoById };
 export default rootReducer;

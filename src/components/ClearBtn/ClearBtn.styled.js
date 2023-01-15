@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Wrapper = styled.button`
   font-size: ${({ theme }) => theme.fonts.font4};
@@ -8,7 +8,12 @@ const Wrapper = styled.button`
   border: none;
   cursor: pointer;
   transition: color .2s ease;
-  
+  ${({ isHidden }) => isHidden && css`
+    opacity: 0;
+    visibility: hidden;
+  `} 
+  transition: opacity .2s ease, visibility .2s ease;
+
   :hover {
     color: ${({ theme }) => theme.variationColors.text1};
   }
