@@ -2,6 +2,8 @@ import React, { useState, useEffect, createRef } from "react";
 import { useSelector, shallowEqual } from "react-redux";
 
 import { selectTodoIds } from "@reducers/rootReducer";
+import useMedia from "@hooks/useMedia";
+
 import Item from "@components/Item";
 import Filters from "@components/Filters";
 import ItemCount from "@components/ItemCount";
@@ -11,18 +13,8 @@ import * as S from "./Items.styled";
 
 const Items = () => {
   const todoIds = useSelector(selectTodoIds, shallowEqual);
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const query = "(min-width: 599px)";
-    const mediaQuery = window.matchMedia(query);
-    const handler = event => setMatches(event.matches);
-
-    setMatches(mediaQuery.matches);
-    mediaQuery.addEventListener("change", handler);
-
-    return () => mediaQuery.removeEventListener("change", handler);
-  }, []);
+  const query = "(min-width: 599px)";
+  const [matches] = useMedia(query);
 
   /// drag n drop ///
   const [draggingEl, setDraggingEl] = useState(null);

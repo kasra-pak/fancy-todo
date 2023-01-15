@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import InputField from "@components/InputField";
 import Items from "@components/Items";
 import Filters from "@components/Filters";
+import useMedia from "@hooks/useMedia";
 
 import * as S from "./Main.styled";
 
 const Main = () => {
-  const [matches, setMatches] = useState(false);
-
-  useEffect(() => {
-    const query = "(max-width: 599px)";
-    const mediaQuery = window.matchMedia(query);
-    const handler = event => setMatches(event.matches);
-
-    setMatches(mediaQuery.matches);
-    mediaQuery.addEventListener("change", handler);
-
-    return () => mediaQuery.removeEventListener("change", handler);
-  }, []);
+  const query = "(max-width: 599px)";
+  const [matches] = useMedia(query);
 
   return (
     <S.Wrapper>
