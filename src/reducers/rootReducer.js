@@ -1,3 +1,5 @@
+import { createSelector } from "@reduxjs/toolkit";
+
 const initialState = {
   todos: [
     { id: '1', text: 'Complete online JavaScript course', completed: true },
@@ -71,11 +73,22 @@ const selectFilter = state => state.filter;
 
 const selectTodoIds = state => state.todos.map(todo => todo.id);
 
+const selectFilteredTodos = state => state.todos.filter(todo => {
+  if (state.filter === 'Active') return !todo.completed;
+  if (state.filter === 'Completed') return todo.completed;
+  return todo;
+});
+
+const selectFilteredTodoIds = createSelector(
+  selectFilteredTodos,
+  filteredTodos => filteredTodos.map(todo => todo.id)
+);
+
 const selectIncompleteTodosCount = state => state.todos.filter(todo => !todo.completed).length;
 
 const selectCompleteTodosCount = state => state.todos.filter(todo => todo.completed).length;
 
 const selectTodoById = (state, todoId) => state.find(todo => todo.id === todoId);
 
-export { selectFilter, selectIncompleteTodosCount, selectCompleteTodosCount, selectTodoIds, selectTodoById };
+export { selectFilter, selectFilteredTodos, selectFilteredTodoIds, selectIncompleteTodosCount, selectCompleteTodosCount, selectTodoIds, selectTodoById };
 export default rootReducer;

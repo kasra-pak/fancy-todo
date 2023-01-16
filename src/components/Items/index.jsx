@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createRef } from "react";
 import { useSelector, shallowEqual } from "react-redux";
 
-import { selectTodoIds } from "@reducers/rootReducer";
+import { selectFilteredTodoIds } from "@reducers/rootReducer";
 import useMedia from "@hooks/useMedia";
 
 import Item from "@components/Item";
@@ -12,7 +12,7 @@ import ClearBtn from "@components/ClearBtn";
 import * as S from "./Items.styled";
 
 const Items = () => {
-  const todoIds = useSelector(selectTodoIds, shallowEqual);
+  const filteredTodoIds = useSelector(selectFilteredTodoIds, shallowEqual);
   const query = "(min-width: 599px)";
   const [matches] = useMedia(query);
 
@@ -98,7 +98,7 @@ const Items = () => {
     setCurrIndex(null);
   };
 
-  if (todoIds.length === 0) {
+  if (filteredTodoIds.length === 0) {
     return (
       <S.Wrapper>
         <S.EmptyListText>Nothing to do! Enjoy your day.</S.EmptyListText>
@@ -106,21 +106,21 @@ const Items = () => {
     );
   }
 
+  const todoListItems = filteredTodoIds.map(id => (
+    <Item
+      key={id}
+      ref={createRef()}
+      id={id}
+      draggingElIndex={draggingElIndex}
+      currIndex={currIndex}
+      handleMouseDown={handleMouseDown}
+      handleMouseUp={handleMouseUp}
+    ></Item>
+  ));
+
   return (
     <S.Wrapper>
-      <S.TodosList onMouseMove={handleMouseMove}>
-        {todoIds.map(id => (
-          <Item
-            key={id}
-            ref={createRef()}
-            id={id}
-            draggingElIndex={draggingElIndex}
-            currIndex={currIndex}
-            handleMouseDown={handleMouseDown}
-            handleMouseUp={handleMouseUp}
-          ></Item>
-        ))}
-      </S.TodosList>
+      <S.TodosList onMouseMove={handleMouseMove}>{todoListItems}</S.TodosList>
       <S.Footer>
         <ItemCount />
         {matches && <Filters />}

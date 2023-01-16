@@ -1,7 +1,7 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectFilter, selectTodoById } from "@reducers/rootReducer";
+import { selectTodoById } from "@reducers/rootReducer";
 import * as S from "./Item.styled";
 
 const Item = forwardRef(
@@ -9,7 +9,6 @@ const Item = forwardRef(
     const [trans, setTrans] = useState(0);
     const dispatch = useDispatch();
     const todoData = useSelector(state => selectTodoById(state.todos, id));
-    const filter = useSelector(selectFilter);
 
     useEffect(() => {
       if (draggingElIndex !== null) {
@@ -51,13 +50,13 @@ const Item = forwardRef(
       dispatch({ type: "DELETE_TODO", payload: event.target.dataset.id });
     };
 
-    if (filter === "Completed" && !todoData.completed) {
-      return null;
-    }
+    // if (filter === "Completed" && !todoData.completed) {
+    //   return null;
+    // }
 
-    if (filter === "Active" && todoData.completed) {
-      return null;
-    }
+    // if (filter === "Active" && todoData.completed) {
+    //   return null;
+    // }
 
     return (
       <S.Wrapper
