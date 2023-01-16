@@ -4,6 +4,7 @@ import { useSelector, shallowEqual } from "react-redux";
 import { selectFilteredTodoIds } from "@reducers/rootReducer";
 import useMedia from "@hooks/useMedia";
 
+import EmptyListDialogue from "@components/EmptyListDialogue";
 import Item from "@components/Item";
 import Filters from "@components/Filters";
 import ItemCount from "@components/ItemCount";
@@ -98,14 +99,6 @@ const Items = () => {
     setCurrIndex(null);
   };
 
-  if (filteredTodoIds.length === 0) {
-    return (
-      <S.Wrapper>
-        <S.EmptyListText>Nothing to do! Enjoy your day.</S.EmptyListText>
-      </S.Wrapper>
-    );
-  }
-
   const todoListItems = filteredTodoIds.map(id => (
     <Item
       key={id}
@@ -120,7 +113,11 @@ const Items = () => {
 
   return (
     <S.Wrapper>
-      <S.TodosList onMouseMove={handleMouseMove}>{todoListItems}</S.TodosList>
+      {todoListItems.length === 0 ? (
+        <EmptyListDialogue />
+      ) : (
+        <S.TodosList onMouseMove={handleMouseMove}>{todoListItems}</S.TodosList>
+      )}
       <S.Footer>
         <ItemCount />
         {matches && <Filters />}

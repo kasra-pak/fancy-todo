@@ -42,12 +42,4 @@ const Footer = styled.div`
   ${borderTop}
 `;
 
-const EmptyListText = styled.p`
-  font-size: clamp(.8rem, 2.5vw, 1rem);
-  text-align: center;
-  line-height: 1.25;
-  color: ${({ theme }) => theme.variationColors.text3};
-  margin-block: auto;
-`;
-
-export { Wrapper, TodosList, Footer, EmptyListText };;
+export { Wrapper, TodosList, Footer };;
