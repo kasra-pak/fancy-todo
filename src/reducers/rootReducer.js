@@ -12,7 +12,7 @@ const initialState = {
   filter: 'All'
 };
 
-const newTodoId = (todos) => todos.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1;
+const newTodoId = (todos) => (todos.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1).toString();
 ;
 
 const rootReducer = (state = initialState, action) => {
