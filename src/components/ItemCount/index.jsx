@@ -16,12 +16,13 @@ const ItemCount = () => {
 
   const format = count => `${count} item${count === 1 ? "" : "s"}`;
 
-  return filter === "Completed" ? (
-    <S.Wrapper>{format(completeTodosCount)}</S.Wrapper>
-  ) : (
-    <S.Wrapper>
-      {format(incompleteTodosCount)}
-      {filter === "All" ? " left" : null}
+  const isAll = filter === "All";
+  const isCompleted = filter === "Completed";
+
+  return (
+    <S.Wrapper hideSpan={!isAll}>
+      {format(isCompleted ? completeTodosCount : incompleteTodosCount)}
+      <span> left</span>
     </S.Wrapper>
   );
 };
