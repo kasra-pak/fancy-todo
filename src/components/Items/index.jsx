@@ -3,6 +3,7 @@ import { useSelector, shallowEqual } from "react-redux";
 
 import { selectFilteredTodoIds } from "@reducers/rootReducer";
 import useMedia from "@hooks/useMedia";
+import { rangeValidation } from "@utils";
 
 import EmptyListDialogue from "@components/EmptyListDialogue";
 import Item from "@components/Item";
@@ -53,7 +54,7 @@ const Items = () => {
 
   const handleMouseMove = e => {
     if (draggingEl) {
-      // Dissable pointer events for the top element
+      // Dissable pointer events for the dragged element
       // so that we can check what's behind it
       draggingEl.style.pointerEvents = "none";
       const belowEl = document.elementFromPoint(e.pageX, e.pageY);
@@ -73,12 +74,6 @@ const Items = () => {
       const { height: draggingElHeight } = draggingEl.getBoundingClientRect();
       const { bottom: droppableBottom, top: droppableTop } =
         e.currentTarget.getBoundingClientRect();
-
-      const rangeValidation = (num, min, max) => {
-        if (num > max) return max;
-        if (num < min) return min;
-        return num;
-      };
 
       const minPos = droppableTop - startPos;
       const maxPos = droppableBottom - (startPos + draggingElHeight);
