@@ -3,7 +3,7 @@ import { useSelector, shallowEqual } from "react-redux";
 
 import { selectFilteredTodoIds } from "@reducers/rootReducer";
 import useMedia from "@hooks/useMedia";
-import { rangeValidation } from "@utils";
+import { rangeValidation, belowElement } from "@utils";
 
 import EmptyListDialogue from "@components/EmptyListDialogue";
 import Item from "@components/Item";
@@ -18,80 +18,84 @@ const Items = () => {
   const query = "(min-width: 599px)";
   const [matches] = useMedia(query);
 
-  /// drag n drop ///
-  const [draggingEl, setDraggingEl] = useState(null);
-  const [startPos, setStartPos] = useState(null);
-  const [shiftY, setShiftY] = useState(null);
-  const [draggingElIndex, setDraggingElIndex] = useState(null);
-  const [currIndex, setCurrIndex] = useState(null);
+  ///==== drag n drop ====///
+  const initialDragState = {
+    element: null,
+    top: null,
+    shiftY: null,
+    initialRow: null,
+    row: null,
+  };
 
-  const sth = () => {
-    draggingEl.style.transform = null;
-    setDraggingEl(null);
-    setStartPos(null);
-    setShiftY(null);
-    setDraggingElIndex(null);
-    setCurrIndex(null);
+  const [draggable, setDraggable] = useState(initialDragState);
+
+  const resetDraggable = () => {
+    draggable.element.style.transform = null;
+    setDraggable(initialDragState);
   };
 
   useEffect(() => {
-    if (draggingEl) {
-      window.addEventListener("mouseup", sth);
+    if (draggable.element) {
+      window.addEventListener("mouseup", resetDraggable);
     }
 
-    return () => window.removeEventListener("mouseup", sth);
-  }, [draggingEl]);
+    return () => window.removeEventListener("mouseup", resetDraggable);
+  }, [draggable.element]);
 
   const handleMouseDown = (ref, e) => {
     const refEl = ref.current;
     const { top } = refEl.getBoundingClientRect();
 
-    setDraggingEl(refEl);
-    setStartPos(top);
-    setShiftY(e.pageY - top);
-    setDraggingElIndex(Array.from(refEl.parentElement.children).indexOf(refEl));
+    setDraggable({
+      element: refEl,
+      top: top,
+      shiftY: e.pageY - top,
+      initialRow: Array.from(refEl.parentElement.children).indexOf(refEl),
+      row: null,
+    });
   };
 
   const handleMouseMove = e => {
-    if (draggingEl) {
-      // Dissable pointer events for the dragged element
-      // so that we can check what's behind it
-      draggingEl.style.pointerEvents = "none";
-      const belowEl = document.elementFromPoint(e.pageX, e.pageY);
-      draggingEl.style.pointerEvents = "auto";
-      const belowItem = belowEl.closest("li");
+    if (draggable.element) {
+      const belowTodo = belowElement(
+        draggable.element,
+        e.pageX,
+        e.pageY
+      ).closest("li");
 
-      if (belowItem) {
+      if (belowTodo) {
         const belowItemIndex = Array.from(
-          belowItem.parentElement.children
-        ).indexOf(belowItem);
+          belowTodo.parentElement.children
+        ).indexOf(belowTodo);
 
-        setCurrIndex(belowItemIndex);
+        setDraggable(prevState => ({
+          ...prevState,
+          row: belowItemIndex,
+        }));
       } else {
-        setCurrIndex(null);
+        setDraggable(prevState => ({
+          ...prevState,
+          row: null,
+        }));
       }
 
-      const { height: draggingElHeight } = draggingEl.getBoundingClientRect();
+      const { height: draggingElHeight } =
+        draggable.element.getBoundingClientRect();
       const { bottom: droppableBottom, top: droppableTop } =
         e.currentTarget.getBoundingClientRect();
 
-      const minPos = droppableTop - startPos;
-      const maxPos = droppableBottom - (startPos + draggingElHeight);
-      const mousePos = e.pageY - startPos - shiftY;
+      const minPos = droppableTop - draggable.top;
+      const maxPos = droppableBottom - (draggable.top + draggingElHeight);
+      const mousePos = e.pageY - draggable.top - draggable.shiftY;
 
-      draggingEl.style.transform = `
+      draggable.element.style.transform = `
         translateY(${rangeValidation(mousePos, minPos, maxPos)}px
       `;
     }
   };
 
   const handleMouseUp = () => {
-    draggingEl.style.transform = null;
-    setDraggingEl(null);
-    setStartPos(null);
-    setShiftY(null);
-    setDraggingElIndex(null);
-    setCurrIndex(null);
+    resetDraggable();
   };
 
   const todoListItems = filteredTodoIds.map(id => (
@@ -99,8 +103,8 @@ const Items = () => {
       key={id}
       ref={createRef()}
       id={id}
-      draggingElIndex={draggingElIndex}
-      currIndex={currIndex}
+      draggingElIndex={draggable.initialRow}
+      currIndex={draggable.row}
       handleMouseDown={handleMouseDown}
       handleMouseUp={handleMouseUp}
     ></Item>
