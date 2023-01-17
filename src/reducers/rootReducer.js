@@ -1,4 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
+import { moveElement } from "@utils";
 
 const initialState = {
   todos: [
@@ -60,6 +61,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         filter: action.payload
+      };
+    }
+
+    case 'SWAP_TODO': {
+      return {
+        ...state,
+        todos: moveElement([...state.todos], ...action.payload)
       };
     }
 

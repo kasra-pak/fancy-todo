@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createRef } from "react";
-import { useSelector, shallowEqual } from "react-redux";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
 
 import { selectFilteredTodoIds } from "@reducers/rootReducer";
 import useMedia from "@hooks/useMedia";
@@ -14,6 +14,7 @@ import ClearBtn from "@components/ClearBtn";
 import * as S from "./Items.styled";
 
 const Items = () => {
+  const dispatch = useDispatch();
   const filteredTodoIds = useSelector(selectFilteredTodoIds, shallowEqual);
   const query = "(min-width: 599px)";
   const [matches] = useMedia(query);
@@ -25,6 +26,7 @@ const Items = () => {
     shiftY: null,
     initialRow: null,
     row: null,
+    targetRow: null,
   };
 
   const [draggable, setDraggable] = useState(initialDragState);
@@ -36,23 +38,23 @@ const Items = () => {
 
   useEffect(() => {
     if (draggable.element) {
-      window.addEventListener("mouseup", resetDraggable);
+      window.addEventListener("mouseup", handleMouseUp);
     }
 
-    return () => window.removeEventListener("mouseup", resetDraggable);
-  }, [draggable.element]);
+    return () => window.removeEventListener("mouseup", handleMouseUp);
+  }, [draggable.element, draggable.targetRow]);
 
   const handleMouseDown = (ref, e) => {
     const refEl = ref.current;
     const { top } = refEl.getBoundingClientRect();
 
-    setDraggable({
+    setDraggable(prevState => ({
+      ...prevState,
       element: refEl,
       top: top,
       shiftY: e.pageY - top,
       initialRow: Array.from(refEl.parentElement.children).indexOf(refEl),
-      row: null,
-    });
+    }));
   };
 
   const handleMouseMove = e => {
@@ -71,12 +73,19 @@ const Items = () => {
         setDraggable(prevState => ({
           ...prevState,
           row: belowItemIndex,
+          targetRow: belowItemIndex,
         }));
       } else {
-        setDraggable(prevState => ({
-          ...prevState,
-          row: null,
-        }));
+        setDraggable(prevState => {
+          if (prevState.row !== null) {
+            return {
+              ...prevState,
+              row: null,
+            };
+          } else {
+            return prevState;
+          }
+        });
       }
 
       const { height: draggingElHeight } =
@@ -95,6 +104,15 @@ const Items = () => {
   };
 
   const handleMouseUp = () => {
+    const { initialRow, targetRow } = draggable;
+
+    if (initialRow !== null && targetRow !== null) {
+      dispatch({
+        type: "SWAP_TODO",
+        payload: [initialRow, targetRow],
+      });
+    }
+
     resetDraggable();
   };
 
