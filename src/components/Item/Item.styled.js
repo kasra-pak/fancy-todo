@@ -10,9 +10,6 @@ const Wrapper = styled.li`
   justify-content: space-between;
   align-items: center;
   gap: clamp(.75em, 3vw, 1.25em);
-  cursor: grab;
-  user-select: none;
-  transition: transform .2s ease-out;
 
   &:active {
     cursor: grabbing;
