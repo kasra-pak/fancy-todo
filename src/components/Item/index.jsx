@@ -27,12 +27,13 @@ const Item = forwardRef(({ id, index }, ref) => {
 
   return (
     <Draggable draggableId={id} index={index}>
-      {provided => (
+      {(provided, snapshot) => (
         <S.Wrapper
           ref={ref}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
+          isDragging={snapshot.isDragging}
         >
           <S.Border complete={availableData.completed}>
             <S.CompleteBtn
