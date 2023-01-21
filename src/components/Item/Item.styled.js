@@ -13,10 +13,6 @@ const Wrapper = styled.li`
   gap: clamp(.75em, 3vw, 1.25em);
   transition: border-color .2s ease;
 
-  &:active {
-    cursor: grabbing;
-  }
-
   /* Show DeleteBtn on hover or focus */
   &:focus-within button,
   &:hover > button {
