@@ -6,9 +6,10 @@ import store from './store';
 import App from "./App";
 
 createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
+  // "react-beautiful-dnd" doesn't support StrictMode
+  // <React.StrictMode>
+  <Provider store={store}>
+    <App />
+  </Provider>
+  // </React.StrictMode>
 );
