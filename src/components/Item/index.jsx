@@ -19,11 +19,12 @@ const Item = ({ id, index }) => {
 
   return (
     <Draggable draggableId={id} index={index}>
-      {provided => (
+      {(provided, snapshot) => (
         <S.Wrapper
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
+          isDragging={snapshot.isDragging}
         >
           <S.Border complete={todoData.completed}>
             <S.CompleteBtn
