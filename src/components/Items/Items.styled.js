@@ -22,6 +22,10 @@ const Wrapper = styled.div`
 `;
 
 const TodosList = styled.ul`
+  min-height: clamp(150px, 50vw, 300px);
+  max-height: 50vh;
+  overflow: hidden auto;
+  
   & > li {
     ${padding}
   }
