@@ -35,6 +35,7 @@ const Border = styled.div`
   /* Keeps the inner button centered */
   display: flex;
   justify-content: center;
+  transition: box-shadow .2s ease;
 
   /* Gradient background transition is not supported */
   /* So we simulate it :D */
@@ -50,6 +51,14 @@ const Border = styled.div`
 
   &:hover::after {
     opacity: 1;
+  }
+
+  &:hover {
+    box-shadow:
+      -2px 0px 5px -3px hsl(192, 100%, 67%),
+      0px -2px 5px -3px hsl(192, 100%, 67%),
+      2px 0px 5px -3px hsl(280, 87%, 65%),
+      0px 2px 5px -3px hsl(280, 87%, 65%);
   }
 `;
 
