@@ -13,7 +13,7 @@ const Wrapper = styled.ul`
   gap: 1.1em;
   border-radius: ${({ elevated, theme }) => elevated ? theme.roundBorder : 'none'};
   padding: ${({ elevated }) => elevated ? '1em' : 'none'};
-  box-shadow: ${({ elevated, theme }) => elevated ? theme.shadows.shadow1 : 'none'};
+  box-shadow: ${({ elevated, theme }) => elevated ? theme.variationColors.shadow1 : 'none'};
 `;
 
 const Filter = styled.li`

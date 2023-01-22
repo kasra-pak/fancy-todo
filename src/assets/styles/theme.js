@@ -17,9 +17,7 @@ const fonts = {
   font4: 'clamp(.65rem, 2.25vw, .75rem)',
 };
 
-const shadows = {
-  shadow1: '0 25px 50px -12px hsla(0, 100%, 0%, .15)',
-};
+
 
 const circleSizes = {
   size1: 'clamp(19px, 3vw, 25px)'
@@ -31,7 +29,6 @@ const letterSpace = 'clamp(-.25px, calc(1px - .15vw), 0px)';
 const rest = {
   generalColors,
   fonts,
-  shadows,
   circle: circleSizes,
   roundBorder,
   letterSpace,
@@ -52,6 +49,7 @@ const lightTheme = {
     text2: "hsl(235, 19%, 35%)",
     text3: "hsl(233, 11%, 84%)",
     text4: "hsl(236, 9%, 61%)",
+    shadow1: '0 25px 50px -12px hsla(0, 100%, 0%, .15)',
   },
   ...rest
 };
@@ -71,6 +69,7 @@ const darkTheme = {
     text2: "hsl(234, 39%, 85%)",
     text3: "hsl(233, 14%, 35%)",
     text4: "hsl(234, 11%, 52%)",
+    shadow1: '0 25px 50px -12px hsla(0, 100%, 0%, .5)',
   },
   ...rest
 };
