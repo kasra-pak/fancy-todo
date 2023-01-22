@@ -26,6 +26,31 @@ const TodosList = styled.ul`
   max-height: 50vh;
   overflow: hidden auto;
   
+  /* Custom scrollbar */
+  --sb-width: 10px;
+  --sb-radius: 10px;
+  --thumb-color: ${({ theme }) => theme.generalColors.color1};
+  --thumb-image: ${({ theme }) => theme.generalColors.color2};
+  --track-color: ${({ theme }) => theme.variationColors.border1};
+
+  scrollbar-color: var(--thumb-color) var(--track-color);
+  scrollbar-width: thin;
+  
+  &::-webkit-scrollbar {
+    background-color: var(--track-color);
+    width: var(--sb-width);
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--track-color);
+    border-radius: var(--sb-radius);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-image: var(--thumb-image);
+    border-radius: var(--sb-radius);
+  }
+
   & > li {
     ${padding}
   }
