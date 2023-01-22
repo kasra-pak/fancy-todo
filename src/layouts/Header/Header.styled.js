@@ -30,6 +30,7 @@ const ThemeToggler = styled.button`
   width: clamp(20px, 3.5vw, 27px);
   aspect-ratio: 1;
   cursor: pointer;
+  transition: background-image .2s ease;
 `;
 
 export { Wrapper, Title, ThemeToggler };

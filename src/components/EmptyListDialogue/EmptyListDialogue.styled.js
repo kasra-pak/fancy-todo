@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   line-height: 1.25;
   color: ${({ theme }) => theme.variationColors.text3};
   padding: 1em;
+  transition: color .2s ease;
 `;
 
 export { Wrapper };

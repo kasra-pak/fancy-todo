@@ -13,6 +13,7 @@ const Wrapper = styled.div`
     top: 50%;
     left: clamp(1.08em, 3.5vw, 1.3em);
     transform: translateY(-50%);
+    transition: border-color .2s ease;
   }
 `;
 
@@ -28,6 +29,7 @@ const Input = styled.input`
   border-radius: ${({ theme }) => theme.roundBorder};
   border: none;
   margin-bottom: -2px;
+  transition: color .2s ease, background-color .2s ease;
 `;
 
 export { Wrapper, Input };

@@ -19,13 +19,15 @@ const Wrapper = styled.div`
   border-radius: ${({ theme }) => theme.roundBorder};
   box-shadow: ${({ theme }) => theme.variationColors.shadow1};
   min-height: clamp(200px, 50vw, 350px);
+  transition: color .2s ease, background-color .2s ease, box-shadow .2s ease;
 `;
 
 const TodosList = styled.ul`
   min-height: clamp(150px, 50vw, 300px);
   max-height: 50vh;
   overflow: hidden auto;
-  
+  transition: scrollbar-color .2s ease;
+
   /* Custom scrollbar */
   --sb-width: 10px;
   --sb-radius: 10px;

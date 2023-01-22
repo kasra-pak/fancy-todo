@@ -9,15 +9,16 @@ import Main from "@layouts/Main";
 import Footer from "@layouts/Footer";
 
 const App = () => {
-  const [currentTheme, setCurrentTheme] = useState("light");
+  const [isLight, setIsLight] = useState(true);
+
+  const toggleTheme = () => {
+    setIsLight(prevState => !prevState);
+  };
 
   return (
-    <ThemeProvider theme={currentTheme === "light" ? lightTheme : darkTheme}>
+    <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
       <GlobalStyle />
-      <Header
-        currentTheme={currentTheme}
-        toggleTheme={theme => setCurrentTheme(theme)}
-      />
+      <Header isLight={isLight} toggleTheme={toggleTheme} />
       <Main />
       <Footer />
     </ThemeProvider>

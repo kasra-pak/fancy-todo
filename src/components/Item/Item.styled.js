@@ -31,11 +31,11 @@ const Border = styled.div`
   padding: ${({ complete }) => complete ? '0' : '1px'};
   cursor: pointer;
   position: relative;
+  transition: background-color .2s ease, box-shadow .2s ease;
 
   /* Keeps the inner button centered */
   display: flex;
   justify-content: center;
-  transition: box-shadow .2s ease;
 
   /* Gradient background transition is not supported */
   /* So we simulate it :D */
@@ -68,6 +68,8 @@ const CompleteBtn = styled.button`
   border: none;
   border-radius: inherit;
   cursor: inherit;
+  transition: background-color .2s ease;
+
   /* Always in front; even when hovering */
   position: relative;
   z-index: 1;
@@ -89,6 +91,7 @@ const Text = styled.p`
   color: ${({ theme, complete }) => complete ? theme.variationColors.text3 : 'inherit'};
   flex: 1 1 50%;
   margin-bottom: -2px;
+  transition: color .2s ease;
 `;
 
 const DeleteBtn = styled.button`
