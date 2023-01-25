@@ -1,8 +1,10 @@
-import React from "react";
+import React, { createRef } from "react";
 import { useSelector, shallowEqual } from "react-redux";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import { selectFilteredTodoIds } from "@reducers/rootReducer";
 import useMedia from "@hooks/useMedia";
+import { fade } from "@assets/styles/transitions";
 
 import EmptyListDialogue from "@components/EmptyListDialogue";
 import Item from "@components/Item";
@@ -17,14 +19,31 @@ const Items = () => {
   const query = "(min-width: 599px)";
   const [matches] = useMedia(query);
 
-  const todoListItems = filteredTodoIds.map(id => <Item key={id} id={id} />);
+  const todoListItems = filteredTodoIds.map(id => {
+    const ref = createRef();
+
+    return (
+      <CSSTransition
+        key={id}
+        nodeRef={ref}
+        timeout={fade.timeout}
+        classNames={fade.name}
+        appear
+        in
+      >
+        <Item ref={ref} id={id} />
+      </CSSTransition>
+    );
+  });
 
   return (
     <S.Wrapper>
       {todoListItems.length === 0 ? (
         <EmptyListDialogue />
       ) : (
-        <S.TodosList>{todoListItems}</S.TodosList>
+        <S.TodosList>
+          <TransitionGroup component={null}>{todoListItems}</TransitionGroup>
+        </S.TodosList>
       )}
       <S.Footer>
         <ItemCount />

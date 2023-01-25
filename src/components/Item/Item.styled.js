@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { fade } from "@assets/styles/transitions";
 
 import lightCrossImg from '@assets/images/icon-cross-light.svg';
 import darkCrossImg from '@assets/images/icon-cross-dark.svg';
@@ -10,6 +11,7 @@ const Wrapper = styled.li`
   justify-content: space-between;
   align-items: center;
   gap: clamp(.75em, 3vw, 1.25em);
+  transition: border-color .2s ease;
 
   &:active {
     cursor: grabbing;
@@ -21,6 +23,8 @@ const Wrapper = styled.li`
     opacity: 1;
     pointer-events: auto;
   }
+
+  ${fade.classes}
 `;
 
 const Border = styled.div`
