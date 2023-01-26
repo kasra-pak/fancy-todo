@@ -29,8 +29,12 @@ const Item = forwardRef(({ id, index }, ref) => {
     <Draggable draggableId={id} index={index}>
       {(provided, snapshot) => (
         <S.Wrapper
-          ref={ref}
-          ref={provided.innerRef}
+          ref={el => {
+            // CSSTransition ref
+            ref.current = el;
+            // Drag n Drop ref
+            provided.innerRef(el);
+          }}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           isDragging={snapshot.isDragging}
