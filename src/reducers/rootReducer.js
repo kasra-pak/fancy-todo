@@ -72,6 +72,13 @@ const rootReducer = (state = initialState, action) => {
       };
     }
 
+    case 'SWAP_TODO': {
+      return {
+        ...state,
+        todos: moveElement([...state.todos], ...action.payload)
+      };
+    }
+
     default:
       return state;
   }
