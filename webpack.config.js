@@ -34,9 +34,9 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist/public",
+    publicPath: "/dist/",
     filename: "bundle.js",
-    assetModuleFilename: 'assets/[base]',
+    assetModuleFilename: 'public/assets/[base]',
     clean: true,
   },
   devServer: {
@@ -52,7 +52,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
-      filename: 'index.html',
       favicon: 'public/favicon.ico',
     })
   ]
