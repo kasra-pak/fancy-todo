@@ -15,20 +15,20 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },
   resolve: {
     extensions: ["*", ".js", ".jsx"],
     alias: {
-      "@components": path.resolve(__dirname, 'src/components/'),
-      "@layouts": path.resolve(__dirname, 'src/layouts/'),
-      "@hooks": path.resolve(__dirname, 'src/hooks/'),
-      "@reducers": path.resolve(__dirname, 'src/reducers/'),
-      "@assets": path.resolve(__dirname, 'src/assets/'),
-      "@utils": path.resolve(__dirname, 'src/utils/'),
-    }
+      "@components": path.resolve(__dirname, "src/components/"),
+      "@layouts": path.resolve(__dirname, "src/layouts/"),
+      "@hooks": path.resolve(__dirname, "src/hooks/"),
+      "@reducers": path.resolve(__dirname, "src/reducers/"),
+      "@assets": path.resolve(__dirname, "src/assets/"),
+      "@utils": path.resolve(__dirname, "src/utils/"),
+    },
   },
   output: {
     path: path.resolve(__dirname, "dist"),

@@ -22,7 +22,8 @@ const Title = styled.h1`
 `;
 
 const ThemeToggler = styled.button`
-  background-image: ${({ theme }) => theme.name === 'light' ? `url(${moonImg})` : `url(${sunImg})`};
+  background-image: ${({ theme }) =>
+    theme.name === "light" ? `url(${moonImg})` : `url(${sunImg})`};
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,7 +31,7 @@ const ThemeToggler = styled.button`
   width: clamp(20px, 3.5vw, 27px);
   aspect-ratio: 1;
   cursor: pointer;
-  transition: background-image .2s ease;
+  transition: background-image 0.2s ease;
 `;
 
 export { Wrapper, Title, ThemeToggler };

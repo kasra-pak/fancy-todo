@@ -1,4 +1,4 @@
-const loadState = (key) => {
+const loadState = key => {
   let state;
   const stringState = localStorage.getItem(key);
 
@@ -6,7 +6,6 @@ const loadState = (key) => {
     state = JSON.parse(stringState);
     if (state === null) return undefined;
     return state;
-
   } catch (err) {
     console.log(err);
     return undefined;

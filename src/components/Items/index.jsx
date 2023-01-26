@@ -35,8 +35,7 @@ const Items = () => {
     dispatch({ type: "SWAP_TODO", payload: [source.index, destination.index] });
   };
 
-  const todoListItems = filteredTodoIds.map((id, index) => (
-    {
+  const todoListItems = filteredTodoIds.map((id, index) => {
     const ref = createRef();
 
     return (
@@ -51,8 +50,7 @@ const Items = () => {
         <Item ref={ref} id={id} index={index} />
       </CSSTransition>
     );
-  }
-  ));
+  });
 
   return (
     <S.Wrapper>
@@ -63,11 +61,11 @@ const Items = () => {
           <Droppable droppableId="todos">
             {provided => (
               <S.TodosList ref={provided.innerRef} {...provided.droppableProps}>
-          <TransitionGroup component={null}>
-                {todoListItems}
-                {provided.placeholder}
-              </TransitionGroup>
-        </S.TodosList>
+                <TransitionGroup component={null}>
+                  {todoListItems}
+                  {provided.placeholder}
+                </TransitionGroup>
+              </S.TodosList>
             )}
           </Droppable>
         </DragDropContext>

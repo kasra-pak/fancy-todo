@@ -3,40 +3,42 @@ import { moveElement } from "@utils";
 
 const initialState = {
   todos: [
-    { id: '1', text: 'Complete online JavaScript course', completed: true },
-    { id: '2', text: 'Jog around the park 3x', completed: false },
-    { id: '3', text: '10 minutes meditation', completed: false },
-    { id: '4', text: 'Read for 1 hour', completed: false },
-    { id: '5', text: 'Pick up groceries', completed: false },
-    { id: '6', text: 'Complete Todo App on Frontend Mentor', completed: false }
+    { id: "1", text: "Complete online JavaScript course", completed: true },
+    { id: "2", text: "Jog around the park 3x", completed: false },
+    { id: "3", text: "10 minutes meditation", completed: false },
+    { id: "4", text: "Read for 1 hour", completed: false },
+    { id: "5", text: "Pick up groceries", completed: false },
+    { id: "6", text: "Complete Todo App on Frontend Mentor", completed: false },
   ],
-  filter: 'All'
+  filter: "All",
 };
 
-const newTodoId = (todos) => (todos.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1).toString();
-;
-
+const newTodoId = todos =>
+  (todos.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1).toString();
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TODO': {
+    case "ADD_TODO": {
       return {
         ...state,
-        todos: [...state.todos, {
-          id: newTodoId(state.todos),
-          text: action.payload,
-          completed: false,
-        }]
+        todos: [
+          ...state.todos,
+          {
+            id: newTodoId(state.todos),
+            text: action.payload,
+            completed: false,
+          },
+        ],
       };
     }
 
-    case 'DELETE_TODO': {
+    case "DELETE_TODO": {
       return {
         ...state,
-        todos: state.todos.filter(todo => todo.id !== action.payload)
+        todos: state.todos.filter(todo => todo.id !== action.payload),
       };
     }
 
-    case 'TOGGLE_TODO': {
+    case "TOGGLE_TODO": {
       return {
         ...state,
         todos: state.todos.map(todo => {
@@ -45,29 +47,28 @@ const rootReducer = (state = initialState, action) => {
           }
 
           return todo;
-        }
-        )
+        }),
       };
     }
 
-    case 'CLEAR_COMPLETED': {
+    case "CLEAR_COMPLETED": {
       return {
         ...state,
-        todos: state.todos.filter(todo => !todo.completed)
+        todos: state.todos.filter(todo => !todo.completed),
       };
     }
 
-    case 'TOGGLE_FILTER': {
+    case "TOGGLE_FILTER": {
       return {
         ...state,
-        filter: action.payload
+        filter: action.payload,
       };
     }
 
-    case 'SWAP_TODO': {
+    case "SWAP_TODO": {
       return {
         ...state,
-        todos: moveElement([...state.todos], ...action.payload)
+        todos: moveElement([...state.todos], ...action.payload),
       };
     }
 
@@ -81,22 +82,34 @@ const selectFilter = state => state.filter;
 
 const selectTodoIds = state => state.todos.map(todo => todo.id);
 
-const selectFilteredTodos = state => state.todos.filter(todo => {
-  if (state.filter === 'Active') return !todo.completed;
-  if (state.filter === 'Completed') return todo.completed;
-  return todo;
-});
+const selectFilteredTodos = state =>
+  state.todos.filter(todo => {
+    if (state.filter === "Active") return !todo.completed;
+    if (state.filter === "Completed") return todo.completed;
+    return todo;
+  });
 
 const selectFilteredTodoIds = createSelector(
   selectFilteredTodos,
   filteredTodos => filteredTodos.map(todo => todo.id)
 );
 
-const selectIncompleteTodosCount = state => state.todos.filter(todo => !todo.completed).length;
+const selectIncompleteTodosCount = state =>
+  state.todos.filter(todo => !todo.completed).length;
 
-const selectCompleteTodosCount = state => state.todos.filter(todo => todo.completed).length;
+const selectCompleteTodosCount = state =>
+  state.todos.filter(todo => todo.completed).length;
 
-const selectTodoById = (state, todoId) => state.find(todo => todo.id === todoId);
+const selectTodoById = (state, todoId) =>
+  state.find(todo => todo.id === todoId);
 
-export { selectFilter, selectFilteredTodos, selectFilteredTodoIds, selectIncompleteTodosCount, selectCompleteTodosCount, selectTodoIds, selectTodoById };
+export {
+  selectFilter,
+  selectFilteredTodos,
+  selectFilteredTodoIds,
+  selectIncompleteTodosCount,
+  selectCompleteTodosCount,
+  selectTodoIds,
+  selectTodoById,
+};
 export default rootReducer;

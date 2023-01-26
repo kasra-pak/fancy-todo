@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 const padding = css`
   padding-inline: clamp(1em, 3vw, 1.2em);
-  padding-block: clamp(.92em, 3vw, 1.08em);
+  padding-block: clamp(0.92em, 3vw, 1.08em);
 `;
 
 const borderTop = css`
@@ -19,14 +19,14 @@ const Wrapper = styled.div`
   border-radius: ${({ theme }) => theme.roundBorder};
   box-shadow: ${({ theme }) => theme.variationColors.shadow1};
   min-height: clamp(200px, 50vw, 350px);
-  transition: color .2s ease, background-color .2s ease, box-shadow .2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 `;
 
 const TodosList = styled.ul`
   min-height: clamp(150px, 50vw, 300px);
   max-height: 50vh;
   overflow: hidden auto;
-  transition: scrollbar-color .2s ease;
+  transition: scrollbar-color 0.2s ease;
 
   /* Custom scrollbar */
   --sb-width: 10px;
@@ -37,7 +37,7 @@ const TodosList = styled.ul`
 
   scrollbar-color: var(--thumb-color) var(--track-color);
   scrollbar-width: thin;
-  
+
   &::-webkit-scrollbar {
     background-color: var(--track-color);
     width: var(--sb-width);
@@ -60,7 +60,7 @@ const TodosList = styled.ul`
   & > li + li {
     ${borderTop}
   }
-  `;
+`;
 
 const Footer = styled.div`
   margin-top: auto;
@@ -68,9 +68,9 @@ const Footer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: .5em 0;
+  gap: 0.5em 0;
   ${padding}
   ${borderTop}
 `;
 
-export { Wrapper, TodosList, Footer };;
+export { Wrapper, TodosList, Footer };

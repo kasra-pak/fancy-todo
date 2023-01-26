@@ -7,7 +7,7 @@ const Wrapper = styled.footer`
   max-width: 540px;
   margin-block-start: clamp(3em, 7vw, 4em);
   margin-inline: auto;
-  transition: color .2s ease;
+  transition: color 0.2s ease;
 `;
 
 export { Wrapper };

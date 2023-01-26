@@ -4,11 +4,11 @@ import { loadState, saveState } from "./localStorage";
 
 const store = configureStore({
   reducer: rootReducer,
-  preloadedState: loadState('todos'),
+  preloadedState: loadState("todos"),
 });
 
 store.subscribe(() => {
-  saveState('todos', {
+  saveState("todos", {
     todos: store.getState().todos,
     filter: store.getState().filter,
   });
