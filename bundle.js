@@ -1476,7 +1476,7 @@ eval("\n\nif (false) {} else {\n  module.exports = __webpack_require__(/*! ../cj
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"public/assets/bg-desktop-dark.jpg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/bg-desktop-dark.jpg?");
+eval("module.exports = __webpack_require__.p + \"assets/bg-desktop-dark.jpg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/bg-desktop-dark.jpg?");
 
 /***/ }),
 
@@ -1487,7 +1487,7 @@ eval("module.exports = __webpack_require__.p + \"public/assets/bg-desktop-dark.j
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"public/assets/bg-desktop-light.jpg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/bg-desktop-light.jpg?");
+eval("module.exports = __webpack_require__.p + \"assets/bg-desktop-light.jpg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/bg-desktop-light.jpg?");
 
 /***/ }),
 
@@ -1498,7 +1498,7 @@ eval("module.exports = __webpack_require__.p + \"public/assets/bg-desktop-light.
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"public/assets/bg-mobile-dark.jpg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/bg-mobile-dark.jpg?");
+eval("module.exports = __webpack_require__.p + \"assets/bg-mobile-dark.jpg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/bg-mobile-dark.jpg?");
 
 /***/ }),
 
@@ -1509,7 +1509,7 @@ eval("module.exports = __webpack_require__.p + \"public/assets/bg-mobile-dark.jp
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"public/assets/bg-mobile-light.jpg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/bg-mobile-light.jpg?");
+eval("module.exports = __webpack_require__.p + \"assets/bg-mobile-light.jpg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/bg-mobile-light.jpg?");
 
 /***/ }),
 
@@ -1520,7 +1520,7 @@ eval("module.exports = __webpack_require__.p + \"public/assets/bg-mobile-light.j
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"public/assets/icon-check.svg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/icon-check.svg?");
+eval("module.exports = __webpack_require__.p + \"assets/icon-check.svg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/icon-check.svg?");
 
 /***/ }),
 
@@ -1531,7 +1531,7 @@ eval("module.exports = __webpack_require__.p + \"public/assets/icon-check.svg\";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"public/assets/icon-cross-dark.svg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/icon-cross-dark.svg?");
+eval("module.exports = __webpack_require__.p + \"assets/icon-cross-dark.svg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/icon-cross-dark.svg?");
 
 /***/ }),
 
@@ -1542,7 +1542,7 @@ eval("module.exports = __webpack_require__.p + \"public/assets/icon-cross-dark.s
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"public/assets/icon-cross-light.svg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/icon-cross-light.svg?");
+eval("module.exports = __webpack_require__.p + \"assets/icon-cross-light.svg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/icon-cross-light.svg?");
 
 /***/ }),
 
@@ -1553,7 +1553,7 @@ eval("module.exports = __webpack_require__.p + \"public/assets/icon-cross-light.
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"public/assets/icon-moon.svg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/icon-moon.svg?");
+eval("module.exports = __webpack_require__.p + \"assets/icon-moon.svg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/icon-moon.svg?");
 
 /***/ }),
 
@@ -1564,7 +1564,7 @@ eval("module.exports = __webpack_require__.p + \"public/assets/icon-moon.svg\";\
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
-eval("module.exports = __webpack_require__.p + \"public/assets/icon-sun.svg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/icon-sun.svg?");
+eval("module.exports = __webpack_require__.p + \"assets/icon-sun.svg\";\n\n//# sourceURL=webpack://todo-app/./src/assets/images/icon-sun.svg?");
 
 /***/ }),
 
