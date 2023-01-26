@@ -10,7 +10,7 @@
     "lint:fix": "npm run lint --fix",
     "build": "webpack",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "author": "kasrapak69@gmail.com",
   "license": "ISC",
