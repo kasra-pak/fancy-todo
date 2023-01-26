@@ -1,4 +1,6 @@
 const path = require("path");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 const devServerPort = 3000;
 
@@ -32,8 +34,10 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/dist/",
+    publicPath: "/dist/public",
     filename: "bundle.js",
+    assetModuleFilename: 'assets/[base]',
+    clean: true,
   },
   devServer: {
     port: devServerPort,
@@ -45,4 +49,11 @@ module.exports = {
     client: { logging: "warn" },
     hot: true,
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'public/index.html',
+      filename: 'index.html',
+      favicon: 'public/favicon.ico',
+    })
+  ]
 };
