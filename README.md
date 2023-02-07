@@ -17,6 +17,7 @@ This is a solution to the [Todo app challenge on Frontend Mentor](https://www.fr
     - [Useful resources](#useful-resources)
   - [Author](#author)
   - [Acknowledgments](#acknowledgments)
+  - [Todos](#todos)
 
 **Note: Delete this note and update the table of contents based on what sections you keep.**
 
@@ -105,3 +106,19 @@ Use this section to outline areas that you want to continue focusing on in futur
 ## Acknowledgments
 
 This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
+
+## Todos
+
+- [ ] [Refactor] Add some basic and general styles that applies to text, colors, etc.
+- [ ] Add Detailed tab for each todo item (date, created, updated).
+- [ ] Separate Inpt field, Items, Filters, Items footer.
+- [ ] Filter toggle forces all the items to rerender even those that were there before.
+- [ ] Toggling CompleteBtn shows the DeleteBtn.
+- [ ] Z-index issue while dragging (completed items).
+- [ ] Create a context for Drag n Drop.
+- [ ] Undo functionality.
+- [ ] Drop functionality.
+- [ ] InputField rerenders every time you press keyboard buttons.
+- [ ] Drag n Drop on filtered lists issue.
+- [ ] Active filters: no dnd.
+- [ ] Empty string check.
