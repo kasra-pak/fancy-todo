@@ -1,7 +1,16 @@
 const path = require("path");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const dotenv = require('dotenv');
 
-const devServerPort = 3000;
+const env = dotenv.config().parsed;
+
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
+
+const devServerPort = 5000;
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -24,7 +33,7 @@ module.exports = (env, argv) => {
       ],
     },
     resolve: {
-      extensions: ["*", ".js", ".jsx"],
+      extensions: [".*", ".js", ".jsx"],
       alias: {
         "@components": path.resolve(__dirname, 'src/components/'),
         "@layouts": path.resolve(__dirname, 'src/layouts/'),
@@ -54,6 +63,7 @@ module.exports = (env, argv) => {
         filename: 'index.html',
         inject: 'body',
       }),
+      new webpack.DefinePlugin(envKeys)
     ],
   };
 };
