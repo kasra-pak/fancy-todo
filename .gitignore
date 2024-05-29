@@ -1,5 +1,6 @@
 .DS_Store
 .prettierignore
 dist
+build
 node_modules
 style-guide.md
