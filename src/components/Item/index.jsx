@@ -4,12 +4,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectTodoById } from "@reducers/rootReducer";
 
 import * as S from "./Item.styled";
+import useDeleteTask from "../../hooks/api/task/useDeleteTask";
+import useUpdateTask from "../../hooks/api/task/useUpdateTask";
+import { TaskStatusEnum } from "../../enums/task.enum";
 
-const Item = forwardRef(({ id }, ref) => {
+const Item = forwardRef(({ id, refetchTasks }, ref) => {
   const dispatch = useDispatch();
   const todoData = useSelector(state => selectTodoById(state.todos, id));
   const [prevData, setPrevData] = useState(todoData);
   const availableData = todoData || prevData;
+
+  const { mutate: onDeleteTask, isLoading: isDeletingTask } = useDeleteTask();
+  const { mutate: onUpdateTask, isLoading: isUpdatingTask } = useUpdateTask();
 
   useEffect(() => {
     // Preserve data for Transition out phase
@@ -17,25 +23,52 @@ const Item = forwardRef(({ id }, ref) => {
   }, [todoData]);
 
   const handleToggle = event => {
-    dispatch({ type: "TOGGLE_TODO", payload: event.target.dataset.id });
+    const payload = {
+      id: event?.target?.dataset?.id,
+      status:
+        todoData?.status === TaskStatusEnum.COMPLETED
+          ? TaskStatusEnum.TODO
+          : TaskStatusEnum.COMPLETED,
+    };
+
+    onUpdateTask(payload, {
+      onSuccess: () => {
+        // dispatch({ type: "TOGGLE_TODO", payload: event.target.dataset.id });
+        refetchTasks();
+      },
+      onError: () => {},
+    });
   };
 
   const handleDelete = event => {
-    dispatch({ type: "DELETE_TODO", payload: event.target.dataset.id });
+    onDeleteTask(event.target.dataset.id, {
+      onSuccess: () => {
+        // dispatch({ type: "DELETE_TODO", payload: event.target.dataset.id });
+        refetchTasks();
+      },
+      onError: () => {},
+    });
   };
 
   return (
     <S.Wrapper ref={ref}>
-      <S.Border complete={availableData.completed}>
+      <S.Border complete={availableData.status === TaskStatusEnum.COMPLETED}>
         <S.CompleteBtn
           type="button"
-          complete={availableData.completed}
+          complete={availableData.status === TaskStatusEnum.COMPLETED}
           onClick={handleToggle}
           data-id={id}
         />
       </S.Border>
-      <S.Text complete={availableData.completed}>{availableData.text}</S.Text>
-      <S.DeleteBtn type="button" data-id={id} onClick={handleDelete} />
+      <S.Text complete={availableData.status === TaskStatusEnum.COMPLETED}>
+        {availableData.title}
+      </S.Text>
+      <S.DeleteBtn
+        type="button"
+        data-id={id}
+        onClick={handleDelete}
+        disabled={isDeletingTask}
+      />
     </S.Wrapper>
   );
 });

@@ -1,5 +1,5 @@
-import React, { createRef } from "react";
-import { useSelector, shallowEqual } from "react-redux";
+import React, { createRef, useEffect, useState } from "react";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import { selectFilteredTodoIds } from "@reducers/rootReducer";
@@ -14,10 +14,17 @@ import ClearBtn from "@components/ClearBtn";
 
 import * as S from "./Items.styled";
 
-const Items = () => {
+const Items = ({ tasks, isLoadingTasks, isRefetchingTasks, refetchTasks }) => {
+  const dispatch = useDispatch();
   const filteredTodoIds = useSelector(selectFilteredTodoIds, shallowEqual);
   const query = "(min-width: 599px)";
   const [matches] = useMedia(query);
+
+  useEffect(() => {
+    if (tasks) {
+      dispatch({ type: "UPDATE_TODOS", payload: tasks });
+    }
+  }, [tasks]);
 
   const todoListItems = filteredTodoIds.map(id => {
     const ref = createRef();
@@ -31,13 +38,15 @@ const Items = () => {
         appear
         in
       >
-        <Item ref={ref} id={id} />
+        <Item ref={ref} id={id} refetchTasks={refetchTasks} />
       </CSSTransition>
     );
   });
 
+  console.log(isLoadingTasks || isRefetchingTasks);
+
   return (
-    <S.Wrapper>
+    <S.Wrapper isLoading={isLoadingTasks || isRefetchingTasks}>
       {todoListItems.length === 0 ? (
         <EmptyListDialogue />
       ) : (

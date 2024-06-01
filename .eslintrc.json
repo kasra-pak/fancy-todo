@@ -7,11 +7,9 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    // "plugin:@typescript-eslint/recommended"
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "overrides": [],
-  // "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -20,11 +18,13 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react"
-    //   "@typescript-eslint"
+    "react",
+    "prettier"
   ],
   "rules": {
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "prettier/prettier": 0,
+    "no-unused-vars": ["warn"],
   },
   "settings": {
     "react": {
