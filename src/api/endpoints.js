@@ -1,11 +1,12 @@
 const endpoints = {
   task: {
-    getAll: '/tasks',
-    patch: '/tasks',
-    create: '/tasks',
-    delete: '/tasks',
-    getOne: '/tasks',
-  }
-}
+    getAll: "/tasks",
+    patch: "/tasks",
+    create: "/tasks",
+    delete: "/tasks",
+    deleteAll: "/tasks/all",
+    getOne: "/tasks",
+  },
+};
 
-export default endpoints
+export default endpoints;

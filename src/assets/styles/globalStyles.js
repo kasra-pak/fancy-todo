@@ -1,7 +1,5 @@
 import { createGlobalStyle, css } from "styled-components";
 
-
-
 const GlobalStyle = createGlobalStyle`${css`
   *,
   *::before,
@@ -45,7 +43,9 @@ const GlobalStyle = createGlobalStyle`${css`
     background-position: top center;
     max-height: 100vh;
     margin: 1.25em;
-    transition: background-color .2s ease, background-image .2s ease;
+    transition:
+      background-color 0.2s ease,
+      background-image 0.2s ease;
 
     @media screen and (min-width: 376px) {
       background-image: ${({ theme }) => theme.backgrounds.desktop};

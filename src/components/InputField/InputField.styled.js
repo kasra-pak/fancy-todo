@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     top: 50%;
     left: clamp(1.08em, 3.5vw, 1.3em);
     transform: translateY(-50%);
-    transition: border-color .2s ease;
+    transition: border-color 0.2s ease;
   }
 `;
 
@@ -25,11 +25,14 @@ const Input = styled.input`
   line-height: 1;
   letter-spacing: ${({ theme }) => theme.letterSpace};
   width: 100%;
-  padding: clamp(1rem, 3vw, 1.25rem) clamp(1.08rem, 3.5vw, 1.3rem) clamp(1rem, 3vw, 1.25rem) clamp(2.925rem, 9vw, 3.85rem);
+  padding: clamp(1rem, 3vw, 1.25rem) clamp(1.08rem, 3.5vw, 1.3rem)
+    clamp(1rem, 3vw, 1.25rem) clamp(2.925rem, 9vw, 3.85rem);
   border-radius: ${({ theme }) => theme.roundBorder};
   border: none;
   margin-bottom: -2px;
-  transition: color .2s ease, background-color .2s ease;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
 `;
 
 export { Wrapper, Input };

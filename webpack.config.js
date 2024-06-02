@@ -1,7 +1,7 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const dotenv = require('dotenv');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require("webpack");
+const dotenv = require("dotenv");
 
 const env = dotenv.config().parsed;
 
@@ -13,11 +13,11 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 const devServerPort = 5000;
 
 module.exports = (env, argv) => {
-  const isProduction = argv.mode === 'production';
+  const isProduction = argv.mode === "production";
 
   return {
     entry: "./src/index.js",
-    mode: isProduction ? 'production' : 'development',
+    mode: isProduction ? "production" : "development",
     module: {
       rules: [
         {
@@ -28,20 +28,20 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
-          type: 'asset/resource',
+          type: "asset/resource",
         },
       ],
     },
     resolve: {
       extensions: [".*", ".js", ".jsx"],
       alias: {
-        "@components": path.resolve(__dirname, 'src/components/'),
-        "@layouts": path.resolve(__dirname, 'src/layouts/'),
-        "@hooks": path.resolve(__dirname, 'src/hooks/'),
-        "@reducers": path.resolve(__dirname, 'src/reducers/'),
-        "@assets": path.resolve(__dirname, 'src/assets/'),
-        "@utils": path.resolve(__dirname, 'src/utils/'),
-      }
+        "@components": path.resolve(__dirname, "src/components/"),
+        "@layouts": path.resolve(__dirname, "src/layouts/"),
+        "@hooks": path.resolve(__dirname, "src/hooks/"),
+        "@reducers": path.resolve(__dirname, "src/reducers/"),
+        "@assets": path.resolve(__dirname, "src/assets/"),
+        "@utils": path.resolve(__dirname, "src/utils/"),
+      },
     },
     output: {
       path: path.resolve(__dirname, "build"),
@@ -59,11 +59,11 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: './public/index.html', // Your HTML template location
-        filename: 'index.html',
-        inject: 'body',
+        template: "./public/index.html", // Your HTML template location
+        filename: "index.html",
+        inject: "body",
       }),
-      new webpack.DefinePlugin(envKeys)
+      new webpack.DefinePlugin(envKeys),
     ],
   };
 };

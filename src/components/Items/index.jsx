@@ -43,8 +43,6 @@ const Items = ({ tasks, isLoadingTasks, isRefetchingTasks, refetchTasks }) => {
     );
   });
 
-  console.log(isLoadingTasks || isRefetchingTasks);
-
   return (
     <S.Wrapper isLoading={isLoadingTasks || isRefetchingTasks}>
       {todoListItems.length === 0 ? (
@@ -57,7 +55,7 @@ const Items = ({ tasks, isLoadingTasks, isRefetchingTasks, refetchTasks }) => {
       <S.Footer>
         <ItemCount />
         {matches && <Filters />}
-        <ClearBtn />
+        <ClearBtn refetchTasks={refetchTasks} />
       </S.Footer>
     </S.Wrapper>
   );
