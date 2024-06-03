@@ -3,7 +3,7 @@ import { TaskStatusEnum } from "../enums/task.enum";
 
 const initialState = {
   todos: [],
-  filter: "All",
+  filter: undefined,
 };
 
 const newTodoId = todos =>

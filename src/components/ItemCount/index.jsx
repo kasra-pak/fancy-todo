@@ -8,6 +8,7 @@ import {
 } from "@reducers/rootReducer";
 
 import * as S from "./ItemCount.styled";
+import { TaskStatusEnum } from "../../enums/task.enum";
 
 const ItemCount = () => {
   const filter = useSelector(selectFilter);
@@ -16,8 +17,8 @@ const ItemCount = () => {
 
   const format = count => `${count} item${count === 1 ? "" : "s"}`;
 
-  const isAll = filter === "All";
-  const isCompleted = filter === "Completed";
+  const isAll = filter === undefined;
+  const isCompleted = filter === TaskStatusEnum.COMPLETED;
 
   return (
     <S.Wrapper hideSpan={!isAll}>
