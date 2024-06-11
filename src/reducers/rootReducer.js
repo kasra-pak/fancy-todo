@@ -2,7 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { TaskStatusEnum } from "../enums/task.enum";
 
 const initialState = {
-  authToken: "",
+  authToken: localStorage.getItem("todo-auth-token") || "",
   todos: [],
   filter: undefined,
 };
@@ -11,6 +11,13 @@ const newTodoId = todos =>
   (todos.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1).toString();
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "LOGIN": {
+      return {
+        ...state,
+        authToken: action.payload,
+      };
+    }
+
     case "UPDATE_TODOS": {
       return {
         ...state,

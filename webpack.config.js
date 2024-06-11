@@ -66,5 +66,6 @@ module.exports = (env, argv) => {
       }),
       new webpack.DefinePlugin(envKeys),
     ],
+    devtool: "cheap-module-source-map",
   };
 };

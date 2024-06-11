@@ -9,7 +9,12 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   config => {
-    // Add any request interceptors here, like adding auth tokens
+    const token = localStorage.getItem("todo-auth-token");
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
     return config;
   },
   error => {
