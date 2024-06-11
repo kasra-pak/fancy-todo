@@ -41,6 +41,7 @@ module.exports = (env, argv) => {
         "@reducers": path.resolve(__dirname, "src/reducers/"),
         "@assets": path.resolve(__dirname, "src/assets/"),
         "@utils": path.resolve(__dirname, "src/utils/"),
+        "@pages": path.resolve(__dirname, "src/pages/"),
       },
     },
     output: {

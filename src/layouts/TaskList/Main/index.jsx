@@ -6,9 +6,9 @@ import Filters from "@components/Filters";
 import useMedia from "@hooks/useMedia";
 
 import * as S from "./Main.styled";
-import useGetTasks from "../../hooks/api/task/useGetTasks";
+import useGetTasks from "@hooks/api/task/useGetTasks";
 import { useSelector } from "react-redux";
-import { selectFilter } from "../../reducers/rootReducer";
+import { selectFilter } from "@reducers/rootReducer";
 
 const Main = () => {
   const query = "(max-width: 599px)";

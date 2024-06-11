@@ -2,6 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { TaskStatusEnum } from "../enums/task.enum";
 
 const initialState = {
+  authToken: "",
   todos: [],
   filter: undefined,
 };
@@ -79,16 +80,20 @@ const rootReducer = (state = initialState, action) => {
 };
 
 // Selector Functions
+const selectAuthToken = state => state.authToken;
+
 const selectFilter = state => state.filter;
 
 const selectTodoIds = state => state.todos.map(todo => todo.id);
 
 const selectFilteredTodos = state =>
   state.todos.filter(todo => {
-    if (state.filter === "Active")
+    if (+state.filter === TaskStatusEnum.TODO)
       return todo.status !== TaskStatusEnum.COMPLETED;
-    if (state.filter === "Completed")
+
+    if (+state.filter === TaskStatusEnum.COMPLETED)
       return todo.status === TaskStatusEnum.COMPLETED;
+
     return todo;
   });
 
@@ -107,6 +112,7 @@ const selectTodoById = (state, todoId) =>
   state.find(todo => todo.id === todoId);
 
 export {
+  selectAuthToken,
   selectFilter,
   selectFilteredTodos,
   selectFilteredTodoIds,

@@ -4,11 +4,13 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "@assets/styles/globalStyles";
 import { lightTheme, darkTheme } from "@assets/styles/theme";
 
-import Header from "@layouts/Header";
-import Main from "@layouts/Main";
-import Footer from "@layouts/Footer";
+import { useSelector } from "react-redux";
+import { selectAuthToken } from "@reducers/rootReducer";
+import Login from "@pages/Login";
+import TaskList from "@pages/TaskList";
 
 const App = () => {
+  const authToken = useSelector(selectAuthToken);
   const [isLight, setIsLight] = useState(true);
 
   const toggleTheme = () => {
@@ -18,9 +20,12 @@ const App = () => {
   return (
     <ThemeProvider theme={isLight ? lightTheme : darkTheme}>
       <GlobalStyle />
-      <Header isLight={isLight} toggleTheme={toggleTheme} />
-      <Main />
-      <Footer />
+
+      {authToken ? (
+        <TaskList isLight={isLight} toggleTheme={toggleTheme} />
+      ) : (
+        <Login isLight={isLight} toggleTheme={toggleTheme} />
+      )}
     </ThemeProvider>
   );
 };
