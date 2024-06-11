@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
 import * as S from "./LoginForm.styled";
-import uselogin from "@hooks/api/auth/useLogin";
+import useLogin from "@hooks/api/auth/useLogin";
 import { useDispatch } from "react-redux";
 
+const formInitialValues = { email: "", password: "" };
+
 const LoginForm = () => {
-  const [formValues, setFormValues] = useState({ email: "", password: "" });
-  const { mutate: onLogin, isLoading: isLogingIn } = uselogin();
+  const [formValues, setFormValues] = useState(formInitialValues);
+  const { mutate: onLogin, isLoading: isLogingIn } = useLogin();
   const dispatch = useDispatch();
 
   const handleInputChange = e => {
@@ -28,6 +30,7 @@ const LoginForm = () => {
       onSuccess: res => {
         dispatch({ type: "LOGIN", payload: res?.access_token });
         localStorage.setItem("todo-auth-token", res?.access_token);
+        setFormValues(formInitialValues);
       },
       onError: () => {},
     });
