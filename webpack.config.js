@@ -16,10 +16,15 @@ module.exports = (env, argv) => {
   const isProduction = argv.mode === "production";
 
   return {
-    entry: "./src/index.js",
+    entry: "./src/index.tsx",
     mode: isProduction ? "production" : "development",
     module: {
       rules: [
+        {
+          test: /\.(ts|tsx)$/,
+          exclude: /(node_modules)/,
+          use: "ts-loader",
+        },
         {
           test: /\.(js|jsx)$/,
           exclude: /(node_modules)/,
@@ -33,7 +38,7 @@ module.exports = (env, argv) => {
       ],
     },
     resolve: {
-      extensions: [".*", ".js", ".jsx"],
+      extensions: [".ts", ".tsx", ".js", ".jsx"],
       alias: {
         "@components": path.resolve(__dirname, "src/components/"),
         "@layouts": path.resolve(__dirname, "src/layouts/"),
@@ -52,7 +57,12 @@ module.exports = (env, argv) => {
       port: devServerPort,
       open: {
         app: {
-          name: "firefox",
+          name:
+            process.platform === "win32"
+              ? "chrome"
+              : process.platform === "darwin"
+                ? "Google Chrome"
+                : "google-chrome",
         },
       },
       client: { logging: "warn" },
