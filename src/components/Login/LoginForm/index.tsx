@@ -15,7 +15,7 @@ const LoginForm = () => {
     const targetInput = e?.target;
 
     if (targetInput?.id && formValues?.hasOwnProperty(targetInput?.id)) {
-      setFormValues(prevState => ({
+      setFormValues((prevState) => ({
         ...prevState,
         [targetInput?.id]: targetInput?.value,
       }));
@@ -27,7 +27,7 @@ const LoginForm = () => {
     const payload = { ...formValues };
 
     onLogin(payload, {
-      onSuccess: res => {
+      onSuccess: (res) => {
         dispatch({ type: "LOGIN", payload: res?.access_token });
         localStorage.setItem("todo-auth-token", res?.access_token);
         setFormValues(formInitialValues);
